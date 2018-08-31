@@ -200,6 +200,7 @@ Makefile: ../DormitoryManagementSystem/DormitoryManagementSystem.pro ../../../..
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/qt_config.prf \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/toolchain.prf \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/default_pre.prf \
@@ -226,6 +227,7 @@ Makefile: ../DormitoryManagementSystem/DormitoryManagementSystem.pro ../../../..
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/lib/qtmaind.prl \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/lib/Qt5Widgets.prl \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/lib/Qt5Gui.prl \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/lib/Qt5Sql.prl \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/lib/Qt5Core.prl
 	$(QMAKE) -o Makefile ..\DormitoryManagementSystem\DormitoryManagementSystem.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/spec_pre.prf:
@@ -367,6 +369,7 @@ Makefile: ../DormitoryManagementSystem/DormitoryManagementSystem.pro ../../../..
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/qt_config.prf:
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/win32-g++/qmake.conf:
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/exclusive_builds.prf:
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/toolchain.prf:
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/default_pre.prf:
@@ -393,6 +396,7 @@ Makefile: ../DormitoryManagementSystem/DormitoryManagementSystem.pro ../../../..
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/lib/qtmaind.prl:
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/lib/Qt5Widgets.prl:
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/lib/Qt5Gui.prl:
+../../../../anzhuang/QtCreator/5.11.1/mingw53_32/lib/Qt5Sql.prl:
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/lib/Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\DormitoryManagementSystem\DormitoryManagementSystem.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"

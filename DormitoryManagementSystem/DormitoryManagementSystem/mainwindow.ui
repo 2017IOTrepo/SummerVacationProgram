@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>747</width>
+    <height>550</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -59,7 +59,7 @@
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="text">
-         <string>排序方式</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;排序方式&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -118,7 +118,7 @@
     <item row="1" column="0">
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>TextLabel</string>
+       <string>搜索</string>
       </property>
      </widget>
     </item>
@@ -126,7 +126,23 @@
      <widget class="QLineEdit" name="lineEdit"/>
     </item>
     <item row="1" column="2">
-     <widget class="QComboBox" name="comboBox"/>
+     <widget class="QComboBox" name="comboBox">
+      <item>
+       <property name="text">
+        <string>姓名</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>学号</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>宿舍号</string>
+       </property>
+      </item>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -137,7 +153,14 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="pOpen"/>
    <addaction name="pNew"/>
+   <addaction name="pSave"/>
+   <addaction name="pSaveAs"/>
+   <addaction name="pClose"/>
+   <addaction name="separator"/>
+   <addaction name="pAdd"/>
+   <addaction name="pDelete"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="pNew">
@@ -150,8 +173,69 @@
     <string>新建宿舍管理表</string>
    </property>
   </action>
+  <action name="pSave">
+   <property name="icon">
+    <iconset>
+     <activeon>:/actions/document-save.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>保存</string>
+   </property>
+  </action>
+  <action name="pSaveAs">
+   <property name="icon">
+    <iconset>
+     <activeon>:/actions/filesaveas.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>另存为</string>
+   </property>
+  </action>
+  <action name="pClose">
+   <property name="icon">
+    <iconset>
+     <activeon>:/actions/gtk-close.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>关闭</string>
+   </property>
+  </action>
+  <action name="pAdd">
+   <property name="icon">
+    <iconset resource="icon.qrc">
+     <normaloff>:/actions/add.png</normaloff>:/actions/add.png</iconset>
+   </property>
+   <property name="text">
+    <string>添加</string>
+   </property>
+  </action>
+  <action name="pDelete">
+   <property name="icon">
+    <iconset>
+     <activeon>:/actions/edit-delete.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>删除</string>
+   </property>
+  </action>
+  <action name="pOpen">
+   <property name="icon">
+    <iconset>
+     <activeon>:/actions/document-open.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>打开</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
  <connections/>
 </ui>
