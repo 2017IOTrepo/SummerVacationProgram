@@ -2,6 +2,7 @@
 #define INFODIALOG_H
 
 #include <QDialog>
+#include <QString>
 
 namespace Ui {
 class InfoDialog;
@@ -15,6 +16,9 @@ public:
     explicit InfoDialog(QWidget *parent = 0);
     ~InfoDialog();
 
+signals:
+    void sendMessages();
+
 private slots:
     void on_finalCheck_accepted();
 
@@ -22,6 +26,15 @@ private slots:
 
 private:
     Ui::InfoDialog *ui;
+    bool recordData();
+
+    int docNum;
+    int docPeo;
+    int docClass;
+    QString stuName;
+    int stuNumber;
+    QString stuSex;
+    QString stuMajor;
 };
 
 #endif // INFODIALOG_H

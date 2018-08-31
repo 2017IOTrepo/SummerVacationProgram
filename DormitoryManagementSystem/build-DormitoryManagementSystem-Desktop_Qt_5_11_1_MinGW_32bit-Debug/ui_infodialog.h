@@ -10,6 +10,7 @@
 #define UI_INFODIALOG_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
@@ -57,6 +58,9 @@ public:
         if (InfoDialog->objectName().isEmpty())
             InfoDialog->setObjectName(QStringLiteral("InfoDialog"));
         InfoDialog->resize(400, 500);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/actions/add.png"), QSize(), QIcon::Normal, QIcon::Off);
+        InfoDialog->setWindowIcon(icon);
         verticalLayout = new QVBoxLayout(InfoDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label = new QLabel(InfoDialog);
@@ -209,7 +213,7 @@ public:
 
     void retranslateUi(QDialog *InfoDialog)
     {
-        InfoDialog->setWindowTitle(QApplication::translate("InfoDialog", "Dialog", nullptr));
+        InfoDialog->setWindowTitle(QApplication::translate("InfoDialog", "\346\226\260\345\273\272\345\255\246\347\224\237\344\277\241\346\201\257", nullptr));
         label->setText(QApplication::translate("InfoDialog", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">\345\256\277\350\210\215\344\277\241\346\201\257</span></p></body></html>", nullptr));
         label_3->setText(QApplication::translate("InfoDialog", "\345\256\277\350\210\215\345\217\267", nullptr));
         label_4->setText(QApplication::translate("InfoDialog", "\345\256\277\350\210\215\344\272\272\346\225\260", nullptr));

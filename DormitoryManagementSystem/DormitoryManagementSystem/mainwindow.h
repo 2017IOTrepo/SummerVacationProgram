@@ -23,6 +23,7 @@ public:
 
 signals:
 
+
 private slots:
     void on_MainWindow_destroyed();
 
@@ -34,8 +35,11 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    void firstOpen();
 
     QFileDialog fileDialog;
+    QString filePath;
+    QString dataPath = "./data.txt";
 };
 
 #endif // MAINWINDOW_H

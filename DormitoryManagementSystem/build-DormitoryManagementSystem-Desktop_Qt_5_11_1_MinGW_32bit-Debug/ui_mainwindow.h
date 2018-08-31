@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
@@ -44,17 +45,17 @@ public:
     QTableView *tableView;
     QVBoxLayout *verticalLayout;
     QSpacerItem *verticalSpacer;
-    QPushButton *pushButton;
+    QPushButton *startSort;
     QSpacerItem *verticalSpacer_2;
     QLabel *label_2;
     QSpacerItem *verticalSpacer_3;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_2;
-    QRadioButton *radioButton_3;
+    QRadioButton *nameSort;
+    QRadioButton *numSort;
+    QRadioButton *docSort;
     QSpacerItem *verticalSpacer_4;
     QLabel *label;
-    QLineEdit *lineEdit;
-    QComboBox *comboBox;
+    QLineEdit *searchView;
+    QComboBox *searchChoice;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -63,41 +64,44 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(747, 550);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/actions/system-run.png"), QSize(), QIcon::Normal, QIcon::Off);
+        MainWindow->setWindowIcon(icon);
         pNew = new QAction(MainWindow);
         pNew->setObjectName(QStringLiteral("pNew"));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/actions/document-new.png"), QSize(), QIcon::Active, QIcon::On);
-        pNew->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/actions/document-new.png"), QSize(), QIcon::Active, QIcon::On);
+        pNew->setIcon(icon1);
         pSave = new QAction(MainWindow);
         pSave->setObjectName(QStringLiteral("pSave"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/actions/document-save.png"), QSize(), QIcon::Active, QIcon::On);
-        pSave->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/actions/document-save.png"), QSize(), QIcon::Active, QIcon::On);
+        pSave->setIcon(icon2);
         pSaveAs = new QAction(MainWindow);
         pSaveAs->setObjectName(QStringLiteral("pSaveAs"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/actions/filesaveas.png"), QSize(), QIcon::Active, QIcon::On);
-        pSaveAs->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/actions/filesaveas.png"), QSize(), QIcon::Active, QIcon::On);
+        pSaveAs->setIcon(icon3);
         pClose = new QAction(MainWindow);
         pClose->setObjectName(QStringLiteral("pClose"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/actions/gtk-close.png"), QSize(), QIcon::Active, QIcon::On);
-        pClose->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/actions/gtk-close.png"), QSize(), QIcon::Active, QIcon::On);
+        pClose->setIcon(icon4);
         pAdd = new QAction(MainWindow);
         pAdd->setObjectName(QStringLiteral("pAdd"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/actions/add.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pAdd->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/actions/add.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pAdd->setIcon(icon5);
         pDelete = new QAction(MainWindow);
         pDelete->setObjectName(QStringLiteral("pDelete"));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral(":/actions/edit-delete.png"), QSize(), QIcon::Active, QIcon::On);
-        pDelete->setIcon(icon5);
+        QIcon icon6;
+        icon6.addFile(QStringLiteral(":/actions/edit-delete.png"), QSize(), QIcon::Active, QIcon::On);
+        pDelete->setIcon(icon6);
         pOpen = new QAction(MainWindow);
         pOpen->setObjectName(QStringLiteral("pOpen"));
-        QIcon icon6;
-        icon6.addFile(QStringLiteral(":/actions/document-open.png"), QSize(), QIcon::Active, QIcon::On);
-        pOpen->setIcon(icon6);
+        QIcon icon7;
+        icon7.addFile(QStringLiteral(":/actions/document-open.png"), QSize(), QIcon::Active, QIcon::On);
+        pOpen->setIcon(icon7);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -116,10 +120,10 @@ public:
 
         verticalLayout->addItem(verticalSpacer);
 
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        startSort = new QPushButton(centralWidget);
+        startSort->setObjectName(QStringLiteral("startSort"));
 
-        verticalLayout->addWidget(pushButton);
+        verticalLayout->addWidget(startSort);
 
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -136,20 +140,20 @@ public:
 
         verticalLayout->addItem(verticalSpacer_3);
 
-        radioButton = new QRadioButton(centralWidget);
-        radioButton->setObjectName(QStringLiteral("radioButton"));
+        nameSort = new QRadioButton(centralWidget);
+        nameSort->setObjectName(QStringLiteral("nameSort"));
 
-        verticalLayout->addWidget(radioButton);
+        verticalLayout->addWidget(nameSort);
 
-        radioButton_2 = new QRadioButton(centralWidget);
-        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
+        numSort = new QRadioButton(centralWidget);
+        numSort->setObjectName(QStringLiteral("numSort"));
 
-        verticalLayout->addWidget(radioButton_2);
+        verticalLayout->addWidget(numSort);
 
-        radioButton_3 = new QRadioButton(centralWidget);
-        radioButton_3->setObjectName(QStringLiteral("radioButton_3"));
+        docSort = new QRadioButton(centralWidget);
+        docSort->setObjectName(QStringLiteral("docSort"));
 
-        verticalLayout->addWidget(radioButton_3);
+        verticalLayout->addWidget(docSort);
 
         verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -163,18 +167,18 @@ public:
 
         gridLayout->addWidget(label, 1, 0, 1, 1);
 
-        lineEdit = new QLineEdit(centralWidget);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        searchView = new QLineEdit(centralWidget);
+        searchView->setObjectName(QStringLiteral("searchView"));
 
-        gridLayout->addWidget(lineEdit, 1, 1, 1, 1);
+        gridLayout->addWidget(searchView, 1, 1, 1, 1);
 
-        comboBox = new QComboBox(centralWidget);
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->setObjectName(QStringLiteral("comboBox"));
+        searchChoice = new QComboBox(centralWidget);
+        searchChoice->addItem(QString());
+        searchChoice->addItem(QString());
+        searchChoice->addItem(QString());
+        searchChoice->setObjectName(QStringLiteral("searchChoice"));
 
-        gridLayout->addWidget(comboBox, 1, 2, 1, 1);
+        gridLayout->addWidget(searchChoice, 1, 2, 1, 1);
 
         MainWindow->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(MainWindow);
@@ -200,7 +204,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "\345\256\277\350\210\215\347\256\241\347\220\206\347\263\273\347\273\237", nullptr));
         pNew->setText(QApplication::translate("MainWindow", "\346\226\260\345\273\272\345\256\277\350\210\215\347\256\241\347\220\206\350\241\250", nullptr));
         pSave->setText(QApplication::translate("MainWindow", "\344\277\235\345\255\230", nullptr));
         pSaveAs->setText(QApplication::translate("MainWindow", "\345\217\246\345\255\230\344\270\272", nullptr));
@@ -208,15 +212,15 @@ public:
         pAdd->setText(QApplication::translate("MainWindow", "\346\267\273\345\212\240", nullptr));
         pDelete->setText(QApplication::translate("MainWindow", "\345\210\240\351\231\244", nullptr));
         pOpen->setText(QApplication::translate("MainWindow", "\346\211\223\345\274\200", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "\345\274\200\345\247\213\346\216\222\345\272\217", nullptr));
+        startSort->setText(QApplication::translate("MainWindow", "\345\274\200\345\247\213\346\216\222\345\272\217", nullptr));
         label_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">\346\216\222\345\272\217\346\226\271\345\274\217</span></p></body></html>", nullptr));
-        radioButton->setText(QApplication::translate("MainWindow", "RadioButton", nullptr));
-        radioButton_2->setText(QApplication::translate("MainWindow", "RadioButton", nullptr));
-        radioButton_3->setText(QApplication::translate("MainWindow", "RadioButton", nullptr));
+        nameSort->setText(QApplication::translate("MainWindow", "\345\247\223\345\220\215", nullptr));
+        numSort->setText(QApplication::translate("MainWindow", "\345\255\246\345\217\267", nullptr));
+        docSort->setText(QApplication::translate("MainWindow", "\345\256\277\350\210\215\345\217\267", nullptr));
         label->setText(QApplication::translate("MainWindow", "\346\220\234\347\264\242", nullptr));
-        comboBox->setItemText(0, QApplication::translate("MainWindow", "\345\247\223\345\220\215", nullptr));
-        comboBox->setItemText(1, QApplication::translate("MainWindow", "\345\255\246\345\217\267", nullptr));
-        comboBox->setItemText(2, QApplication::translate("MainWindow", "\345\256\277\350\210\215\345\217\267", nullptr));
+        searchChoice->setItemText(0, QApplication::translate("MainWindow", "\345\247\223\345\220\215", nullptr));
+        searchChoice->setItemText(1, QApplication::translate("MainWindow", "\345\255\246\345\217\267", nullptr));
+        searchChoice->setItemText(2, QApplication::translate("MainWindow", "\345\256\277\350\210\215\345\217\267", nullptr));
 
     } // retranslateUi
 

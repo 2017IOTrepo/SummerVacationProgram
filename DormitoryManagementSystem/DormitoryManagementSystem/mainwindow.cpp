@@ -14,11 +14,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    firstOpen();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::firstOpen(){
+
 }
 
 void MainWindow::on_MainWindow_destroyed()
@@ -28,7 +33,7 @@ void MainWindow::on_MainWindow_destroyed()
 
 void MainWindow::on_pOpen_triggered()
 {
-    QString filePath = fileDialog.getOpenFileName(this, "open", "../", "sql(*.db)");
+    filePath = fileDialog.getOpenFileName(this, "open", "../", "sql(*.db)");
     //qDebug() << filePath;
 
 }
@@ -40,6 +45,5 @@ void MainWindow::on_pClose_triggered()
 
 void MainWindow::on_pAdd_triggered()
 {
-    //emit openDialog();
-    infodialog.show();
+    infodialog.exec();
 }

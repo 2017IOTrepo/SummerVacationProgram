@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>宿舍管理系统</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/actions/system-run.png</normaloff>:/actions/system-run.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -34,7 +38,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="startSort">
         <property name="text">
          <string>开始排序</string>
         </property>
@@ -80,23 +84,23 @@
        </spacer>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton">
+       <widget class="QRadioButton" name="nameSort">
         <property name="text">
-         <string>RadioButton</string>
+         <string>姓名</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton_2">
+       <widget class="QRadioButton" name="numSort">
         <property name="text">
-         <string>RadioButton</string>
+         <string>学号</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton_3">
+       <widget class="QRadioButton" name="docSort">
         <property name="text">
-         <string>RadioButton</string>
+         <string>宿舍号</string>
         </property>
        </widget>
       </item>
@@ -123,10 +127,10 @@
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLineEdit" name="lineEdit"/>
+     <widget class="QLineEdit" name="searchView"/>
     </item>
     <item row="1" column="2">
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="searchChoice">
       <item>
        <property name="text">
         <string>姓名</string>
