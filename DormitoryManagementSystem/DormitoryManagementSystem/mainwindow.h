@@ -4,6 +4,12 @@
 #include <QMainWindow>
 //文件对话框
 #include <QFileDialog>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QVariantList>
+//表格模型
+#include <QSqlTableModel>
 
 #include "infodialog.h"
 
@@ -36,6 +42,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     void firstOpen();
+    void receiveMessages(int, int, int, QString, int, QString, QString);
+    QSqlDatabase dataBase;
 
     QFileDialog fileDialog;
     QString filePath;

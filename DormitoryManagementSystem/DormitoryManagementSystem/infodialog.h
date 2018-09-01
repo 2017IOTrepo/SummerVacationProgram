@@ -17,7 +17,8 @@ public:
     ~InfoDialog();
 
 signals:
-    void sendMessages();
+    void sendMessages(int, int, int, QString,
+                      int, QString, QString);
 
 private slots:
     void on_finalCheck_accepted();

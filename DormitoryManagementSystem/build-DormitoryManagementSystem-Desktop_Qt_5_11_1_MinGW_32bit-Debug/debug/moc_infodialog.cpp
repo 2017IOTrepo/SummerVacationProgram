@@ -57,14 +57,14 @@ static const uint qt_meta_data_InfoDialog[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   29,    2, 0x06 /* Public */,
+       1,    7,   29,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   30,    2, 0x08 /* Private */,
-       4,    0,   31,    2, 0x08 /* Private */,
+       3,    0,   44,    2, 0x08 /* Private */,
+       4,    0,   45,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::QString, QMetaType::Int, QMetaType::QString, QMetaType::QString,    2,    2,    2,    2,    2,    2,    2,
 
  // slots: parameters
     QMetaType::Void,
@@ -79,7 +79,7 @@ void InfoDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         InfoDialog *_t = static_cast<InfoDialog *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->sendMessages(); break;
+        case 0: _t->sendMessages((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< QString(*)>(_a[4])),(*reinterpret_cast< int(*)>(_a[5])),(*reinterpret_cast< QString(*)>(_a[6])),(*reinterpret_cast< QString(*)>(_a[7]))); break;
         case 1: _t->on_finalCheck_accepted(); break;
         case 2: _t->on_finalCheck_rejected(); break;
         default: ;
@@ -87,14 +87,13 @@ void InfoDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (InfoDialog::*)();
+            using _t = void (InfoDialog::*)(int , int , int , QString , int , QString , QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&InfoDialog::sendMessages)) {
                 *result = 0;
                 return;
             }
         }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject InfoDialog::staticMetaObject = {
@@ -134,9 +133,10 @@ int InfoDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void InfoDialog::sendMessages()
+void InfoDialog::sendMessages(int _t1, int _t2, int _t3, QString _t4, int _t5, QString _t6, QString _t7)
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)), const_cast<void*>(reinterpret_cast<const void*>(&_t4)), const_cast<void*>(reinterpret_cast<const void*>(&_t5)), const_cast<void*>(reinterpret_cast<const void*>(&_t6)), const_cast<void*>(reinterpret_cast<const void*>(&_t7)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE
