@@ -29,6 +29,7 @@ private:
     Ui::InfoDialog *ui;
     bool recordData();
 
+    QString falseText;
     int docNum;
     int docPeo;
     int docClass;

@@ -21,9 +21,16 @@ void InfoDialog::on_finalCheck_accepted()
 {
     if(recordData()){
         emit sendMessages(docNum, docClass, docPeo, stuName, stuNumber, stuSex, stuMajor);
+        ui->docNumberEdit->clear();
+        ui->docClassEdit->clear();
+        ui->stuMajorEdit->clear();
+        ui->docPeoEdit->clear();
+        ui->stuNameEdit->clear();
+        ui->stuNumberEdit->clear();
         this->close();
     }else{
-        QMessageBox::critical(this, "error", "无法正确添加 请检查信息是否正确！");
+        QMessageBox::critical(this, "error", "无法正确添加 请检查是否" + falseText + "信息错误！");
+        falseText.clear();
     }
 }
 
@@ -42,23 +49,34 @@ bool InfoDialog::recordData(){
 //    qDebug() << ui->stuNameEdit->text().isEmpty();
 //    qDebug() << ui->stuNumberEdit->text().isEmpty();
 
-
     if(!ui->docNumberEdit->text().isEmpty() && !ui->docClassEdit->text().isEmpty() &&
             !ui->stuMajorEdit->text().isEmpty() && !ui->docPeoEdit->text().isEmpty() &&
             !ui->stuNameEdit->text().isEmpty() && !ui->stuNumberEdit->text().isEmpty()){
 
         docNum = ui->docNumberEdit->text().toInt(&isOK);
+        if(isOK == false){
+            falseText.append("学生宿舍号 ");
+        }
         docClass = ui->docClassEdit->text().toInt(&isOK);
+        if(isOK == false){
+            falseText.append("学生班级号 ");
+        }
         docPeo = ui->docPeoEdit->text().toInt(&isOK);
+        if(isOK == false){
+            falseText.append("学生人数 ");
+        }
+        stuNumber = ui->docNumberEdit->text().toInt(&isOK);
+        if(isOK == false){
+            falseText.append("学生学号");
+        }
 
         stuName = ui->stuNameEdit->text();
-        stuSex = ui->stuSexCheck->currentText();
-        stuNumber = ui->docNumberEdit->text().toInt(&isOK);
         stuMajor = ui->stuMajorEdit->text();
 
-        if(isOK == false)
-            return isOK;
+        stuSex = ui->stuSexCheck->currentText();
+
     }else{
+        falseText.append("有无未填");
         return !isOK;
     }
 
