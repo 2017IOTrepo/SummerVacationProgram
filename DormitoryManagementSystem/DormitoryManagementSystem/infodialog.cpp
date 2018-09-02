@@ -21,6 +21,7 @@ void InfoDialog::on_finalCheck_accepted()
 {
     if(recordData()){
         emit sendMessages(docNum, docClass, docPeo, stuName, stuNumber, stuSex, stuMajor);
+        qDebug() << "发送信号";
         ui->docNumberEdit->clear();
         ui->docClassEdit->clear();
         ui->stuMajorEdit->clear();
@@ -54,19 +55,19 @@ bool InfoDialog::recordData(){
             !ui->stuNameEdit->text().isEmpty() && !ui->stuNumberEdit->text().isEmpty()){
 
         docNum = ui->docNumberEdit->text().toInt(&isOK);
-        if(isOK == false){
+        if((!isOK) && (docNum <= 0)){
             falseText.append("宿舍号 ");
         }
         docClass = ui->docClassEdit->text().toInt(&isOK);
-        if(isOK == false){
+        if((!isOK) && (docClass <= 0)){
             falseText.append("宿舍所属班级 ");
         }
         docPeo = ui->docPeoEdit->text().toInt(&isOK);
-        if(isOK == false){
+        if((!isOK) && (docPeo <= 0)){
             falseText.append("宿舍人数 ");
         }
         stuNumber = ui->docNumberEdit->text().toInt(&isOK);
-        if(isOK == false){
+        if((!isOK) && (stuNumber <= 0)){
             falseText.append("学生学号 ");
         }
 

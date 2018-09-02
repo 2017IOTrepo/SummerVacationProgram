@@ -24,6 +24,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(&infodialog, InfoDialog::sendMessages, this,
+            &MainWindow::receiveMessages);
     firstOpen();
 }
 
@@ -33,6 +35,7 @@ MainWindow::~MainWindow()
     file.write(filePath.toUtf8());
 
     file.close();
+    model->submitAll();
     delete ui;
 }
 
@@ -43,10 +46,10 @@ void MainWindow::firstOpen(){
 
         file.open(QIODevice::ReadOnly);
         QByteArray array = file.readAll();
-        //qDebug() << array << "这是array";
+        filePath = QString(array);
+        QFile dataFile(filePath);
 
-        if(!array.isEmpty()){
-            filePath = QString(array);
+        if(dataFile.open(QIODevice::ReadOnly)){
             initDataBase();
         }else{
             QMessageBox::warning(this, "warning", "无法读取上次打开的文件!\n请手动打开!");
@@ -81,8 +84,8 @@ void MainWindow::newTabel(){
 //                                "StudentName varchar(50) primary key, StudentNumber int, StudentSex varchar(4), StudentMajor varchar(50));");
 //    bool isSuccess = query.exec("create table student(宿舍号 int, 所属班级 int, 宿舍人数 int, 学生姓名 varchar(50), \
 //                                    学号 int, 学生性别 varchar(4), 学生专业 varchar(50));");
-    bool isSuccess = query.exec("create table student(docNum int, docClass int, docPeo int, stuName varchar(50), \
-                                stuNum int, stuSex varchar(4), stuMajor varchar(50));");
+    bool isSuccess = query.exec("create table student(docNum INTEGER, docClass INTEGER, docPeo INTEGER, stuName varchar(50) primary key, \
+                                stuNum INTEGER, stuSex varchar(4), stuMajor varchar(50));");
     if(isSuccess){
         qDebug() << "成功";
     }else{
@@ -107,7 +110,7 @@ void MainWindow::addModel(){
     model->setHeaderData(6, Qt::Horizontal, "学生专业");
 
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);//设置手动提交
-    //model->setData(1, 1, 1);
+    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 void MainWindow::on_pClose_triggered()
@@ -117,8 +120,7 @@ void MainWindow::on_pClose_triggered()
 
 void MainWindow::on_pAdd_triggered()
 {
-    connect(&infodialog, InfoDialog::sendMessages, this,
-            &MainWindow::receiveMessages);
+    //model->submitAll();
     infodialog.exec();
 }
 
@@ -136,6 +138,7 @@ void MainWindow::receiveMessages(int docNum, int docClass, int docPeo,
     //获取行号
     int row = model->rowCount();
     model->insertRecord(row, record);
+    return;
 }
 
 void MainWindow::on_startSort_clicked()
@@ -143,6 +146,7 @@ void MainWindow::on_startSort_clicked()
     switch(sortType){
 
     case 0:
+        query.prepare("select areaName from area order by convert(areaName USING gbk) COLLATE gbk_chinese_ci asc");
         upOrDownSort(3);
         break;
 
@@ -176,9 +180,19 @@ void MainWindow::on_pNew_triggered()
 
 }
 
+void MainWindow::on_pEdit_triggered()
+{
+
+}
+
 void MainWindow::on_pSave_triggered()
 {
-    model->submitAll();
+    bool issuccessful = model->submitAll();
+    if(issuccessful){
+        qDebug() << "成功";
+    }else{
+        qDebug() << "失败";
+    }
 }
 
 void MainWindow::on_pSaveAs_triggered()
@@ -188,7 +202,18 @@ void MainWindow::on_pSaveAs_triggered()
 
 void MainWindow::on_pDelete_triggered()
 {
-
+    int delRow = ui->tableView->currentIndex().row();
+    model->removeRow(delRow);
+    int ok = QMessageBox::warning(this,tr("删除当前行!"),tr("你确定"
+    "删除当前行吗？"),
+    QMessageBox::Yes,QMessageBox::No);
+    if(ok == QMessageBox::No)
+    {
+    model->revertAll();//如果不删除，则撤销
+    }
+    else{
+        model->submitAll(); //否则提交，在数据库中删除该行
+    }
 }
 
 void MainWindow::on_downSort_clicked(bool checked)
