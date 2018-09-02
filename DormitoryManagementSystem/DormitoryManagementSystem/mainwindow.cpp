@@ -14,6 +14,9 @@
 #include <QVariantList>
 //表格模型
 #include <QSqlTableModel>
+//记录类
+#include <QSqlRecord>
+#include <QVariant>
 #include <QByteArray>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -122,11 +125,45 @@ void MainWindow::on_pAdd_triggered()
 void MainWindow::receiveMessages(int docNum, int docClass, int docPeo,
                                  QString stuName, int stuNumber, QString stuSex, QString stuMajor){
     qDebug() << docNum << docClass << docPeo << stuName << stuNumber << stuSex << stuMajor;
+    QSqlRecord record = model->record();//获取空记录
+    record.setValue(0 , docNum);
+    record.setValue(1 , docClass);
+    record.setValue(2 , docPeo);
+    record.setValue(3 , stuName);
+    record.setValue(4 , stuNumber);
+    record.setValue(5 , stuSex);
+    record.setValue(6 , stuMajor);
+    //获取行号
+    int row = model->rowCount();
+    model->insertRecord(row, record);
 }
 
 void MainWindow::on_startSort_clicked()
 {
+    switch(sortType){
 
+    case 0:
+        upOrDownSort(3);
+        break;
+
+    case 1:
+        upOrDownSort(4);
+        break;
+
+    case 2:
+        upOrDownSort(0);
+        break;
+
+    }
+}
+
+void MainWindow::upOrDownSort(int line){
+    if(isUp){
+        model->setSort(line, Qt::AscendingOrder);
+    }else{
+        model->setSort(line, Qt::DescendingOrder);
+    }
+    model->select();
 }
 
 void MainWindow::on_searchView_textChanged(const QString &arg1)
@@ -137,6 +174,11 @@ void MainWindow::on_searchView_textChanged(const QString &arg1)
 void MainWindow::on_pNew_triggered()
 {
 
+}
+
+void MainWindow::on_pSave_triggered()
+{
+    model->submitAll();
 }
 
 void MainWindow::on_pSaveAs_triggered()
@@ -152,26 +194,42 @@ void MainWindow::on_pDelete_triggered()
 void MainWindow::on_downSort_clicked(bool checked)
 {
     if(checked){
+        isUp = false;
         ui->upsort->setChecked(false);
     }
 }
 
 void MainWindow::on_upsort_clicked(bool checked)
 {
-
+    if(checked){
+        isUp = true;
+        ui->downSort->setChecked(false);
+    }
 }
 
 void MainWindow::on_nameSort_clicked(bool checked)
 {
-
+    if(checked){
+        sortType = 0;
+        ui->numSort->setChecked(false);
+        ui->docSort->setChecked(false);
+    }
 }
 
 void MainWindow::on_numSort_clicked(bool checked)
 {
-
+    if(checked){
+        sortType = 1;
+        ui->nameSort->setChecked(false);
+        ui->docSort->setChecked(false);
+    }
 }
 
 void MainWindow::on_docSort_clicked(bool checked)
 {
-
+    sortType = 2;
+    if(checked){
+        ui->numSort->setChecked(false);
+        ui->nameSort->setChecked(false);
+    }
 }

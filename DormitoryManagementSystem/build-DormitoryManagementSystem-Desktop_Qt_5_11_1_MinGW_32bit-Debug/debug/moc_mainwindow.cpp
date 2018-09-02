@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[13];
-    char stringdata0[209];
+    QByteArrayData data[18];
+    char stringdata0[304];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -43,7 +43,12 @@ QT_MOC_LITERAL(8, 121, 17), // "on_pNew_triggered"
 QT_MOC_LITERAL(9, 139, 20), // "on_pSaveAs_triggered"
 QT_MOC_LITERAL(10, 160, 20), // "on_pDelete_triggered"
 QT_MOC_LITERAL(11, 181, 19), // "on_downSort_clicked"
-QT_MOC_LITERAL(12, 201, 7) // "checked"
+QT_MOC_LITERAL(12, 201, 7), // "checked"
+QT_MOC_LITERAL(13, 209, 17), // "on_upsort_clicked"
+QT_MOC_LITERAL(14, 227, 19), // "on_nameSort_clicked"
+QT_MOC_LITERAL(15, 247, 18), // "on_numSort_clicked"
+QT_MOC_LITERAL(16, 266, 18), // "on_docSort_clicked"
+QT_MOC_LITERAL(17, 285, 18) // "on_pSave_triggered"
 
     },
     "MainWindow\0on_pOpen_triggered\0\0"
@@ -51,7 +56,9 @@ QT_MOC_LITERAL(12, 201, 7) // "checked"
     "on_startSort_clicked\0on_searchView_textChanged\0"
     "arg1\0on_pNew_triggered\0on_pSaveAs_triggered\0"
     "on_pDelete_triggered\0on_downSort_clicked\0"
-    "checked"
+    "checked\0on_upsort_clicked\0on_nameSort_clicked\0"
+    "on_numSort_clicked\0on_docSort_clicked\0"
+    "on_pSave_triggered"
 };
 #undef QT_MOC_LITERAL
 
@@ -61,7 +68,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -69,15 +76,20 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   59,    2, 0x08 /* Private */,
-       3,    0,   60,    2, 0x08 /* Private */,
-       4,    0,   61,    2, 0x08 /* Private */,
-       5,    0,   62,    2, 0x08 /* Private */,
-       6,    1,   63,    2, 0x08 /* Private */,
-       8,    0,   66,    2, 0x08 /* Private */,
-       9,    0,   67,    2, 0x08 /* Private */,
-      10,    0,   68,    2, 0x08 /* Private */,
-      11,    1,   69,    2, 0x08 /* Private */,
+       1,    0,   84,    2, 0x08 /* Private */,
+       3,    0,   85,    2, 0x08 /* Private */,
+       4,    0,   86,    2, 0x08 /* Private */,
+       5,    0,   87,    2, 0x08 /* Private */,
+       6,    1,   88,    2, 0x08 /* Private */,
+       8,    0,   91,    2, 0x08 /* Private */,
+       9,    0,   92,    2, 0x08 /* Private */,
+      10,    0,   93,    2, 0x08 /* Private */,
+      11,    1,   94,    2, 0x08 /* Private */,
+      13,    1,   97,    2, 0x08 /* Private */,
+      14,    1,  100,    2, 0x08 /* Private */,
+      15,    1,  103,    2, 0x08 /* Private */,
+      16,    1,  106,    2, 0x08 /* Private */,
+      17,    0,  109,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -89,6 +101,11 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Bool,   12,
+    QMetaType::Void, QMetaType::Bool,   12,
+    QMetaType::Void, QMetaType::Bool,   12,
+    QMetaType::Void, QMetaType::Bool,   12,
+    QMetaType::Void, QMetaType::Bool,   12,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -108,6 +125,11 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->on_pSaveAs_triggered(); break;
         case 7: _t->on_pDelete_triggered(); break;
         case 8: _t->on_downSort_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 9: _t->on_upsort_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 10: _t->on_nameSort_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 11: _t->on_numSort_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 12: _t->on_docSort_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 13: _t->on_pSave_triggered(); break;
         default: ;
         }
     }
@@ -138,13 +160,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 14;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 14)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 14;
     }
     return _id;
 }

@@ -49,6 +49,16 @@ private slots:
     
     void on_downSort_clicked(bool checked);
 
+    void on_upsort_clicked(bool checked);
+
+    void on_nameSort_clicked(bool checked);
+
+    void on_numSort_clicked(bool checked);
+
+    void on_docSort_clicked(bool checked);
+
+    void on_pSave_triggered();
+
 private:
     Ui::MainWindow *ui;
     void firstOpen();
@@ -58,6 +68,8 @@ private:
     void newTabel();
     void addModel();
 
+    void upOrDownSort(int);
+
     QSqlDatabase dataBase;
     QSqlQuery query;
     QSqlTableModel *model;
@@ -66,6 +78,9 @@ private:
     QString filePath;
     QString dataPath = "./data.txt";
     QFile file;
+
+    bool isUp = false;
+    int sortType = 0;
 
 };
 
