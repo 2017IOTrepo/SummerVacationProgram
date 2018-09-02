@@ -31,8 +31,6 @@ signals:
 
 
 private slots:
-    void on_MainWindow_destroyed();
-
     void on_pOpen_triggered();
 
     void on_pClose_triggered();
@@ -49,12 +47,13 @@ private slots:
     
     void on_pDelete_triggered();
     
+    void on_downSort_clicked(bool checked);
+
 private:
     Ui::MainWindow *ui;
     void firstOpen();
     void receiveMessages(int, int, int, QString, int, QString, QString);
     void initDataBase();
-    void initNewDataBase();
     void openDataBase();
     void newTabel();
     void addModel();
