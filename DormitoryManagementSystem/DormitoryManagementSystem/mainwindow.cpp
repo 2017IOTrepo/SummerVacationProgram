@@ -14,6 +14,7 @@
 #include <QVariantList>
 //表格模型
 #include <QSqlTableModel>
+#include <QByteArray>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -25,11 +26,31 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    file.open(QIODevice::WriteOnly);
+    file.write(filePath.toUtf8());
+
+    file.close();
     delete ui;
 }
 
 void MainWindow::firstOpen(){
+    file.setFileName(dataPath);
+    if(!dataPath.isEmpty()){
+
+        file.open(QIODevice::ReadOnly);
+        QByteArray array = file.readAll();
+        //qDebug() << array << "这是array";
+
+        if(!array.isEmpty()){
+            filePath = QString(array);
+        }else{
+            QMessageBox::warning(this, "warning", "无法读取上次打开的文件!\n请手动打开!");
+        }
+
+    }
+    file.close();
     dataBase = QSqlDatabase::addDatabase("QSQLITE");
+    initDataBase();
 }
 
 void MainWindow::on_MainWindow_destroyed()
@@ -40,13 +61,53 @@ void MainWindow::on_MainWindow_destroyed()
 void MainWindow::on_pOpen_triggered()
 {
     filePath = fileDialog.getOpenFileName(this, "open", "../", "sql(*.db)");
+    openDataBase();
+
+    addModel();
+}
+
+void MainWindow::initDataBase(){
+    bool isTableExist = query.exec(QString("select count(*) from sqlite_master where type='table' and name='%1'").arg("student"));
+
+    if(!isTableExist)
+    {
+        newTabel();
+    }else{
+        addModel();
+    }
+}
+
+void MainWindow::initNewDataBase(){
+    openDataBase();
+    newTabel();
+}
+
+void MainWindow::openDataBase(){
     dataBase.setDatabaseName(filePath);
     if(!dataBase.open()){
         QMessageBox::critical(this, "错误", "打开数据库错误\n" + dataBase.lastError().text());
-        return;
     }
-    //qDebug() << filePath;
+}
 
+void MainWindow::newTabel(){
+    query = QSqlQuery(dataBase);
+//        bool isSuccess = query.exec("create table student(DormitoryNumber int, DormitoryClass int, DormitoryPeopleNumber int, "
+//                                    "StudentName varchar(50) primary key, StudentNumber int, StudentSex varchar(4), StudentMajor varchar(50));");
+    bool isSuccess = query.exec("create table student(宿舍号 int, 所属班级 int, 宿舍人数 int, 学生姓名 varchar(50), \
+                                    学号 int, 学生性别 varchar(4), 学生专业 varchar(50));");
+    if(isSuccess){
+        qDebug() << "成功";
+    }else{
+        qDebug() << "失败";
+    }
+}
+
+void MainWindow::addModel(){
+    model = new QSqlTableModel(this);
+    model->setTable("student");
+
+    ui->tableView->setModel(model);
+    model->select();
 }
 
 void MainWindow::on_pClose_triggered()
@@ -64,4 +125,29 @@ void MainWindow::on_pAdd_triggered()
 void MainWindow::receiveMessages(int docNum, int docClass, int docPeo,
                                  QString stuName, int stuNumber, QString stuSex, QString stuMajor){
     qDebug() << docNum << docClass << docPeo << stuName << stuNumber << stuSex << stuMajor;
+}
+
+void MainWindow::on_startSort_clicked()
+{
+
+}
+
+void MainWindow::on_searchView_textChanged(const QString &arg1)
+{
+
+}
+
+void MainWindow::on_pNew_triggered()
+{
+
+}
+
+void MainWindow::on_pSaveAs_triggered()
+{
+
+}
+
+void MainWindow::on_pDelete_triggered()
+{
+
 }

@@ -39,15 +39,35 @@ private slots:
 
     void on_pAdd_triggered();
 
+    void on_startSort_clicked();
+    
+    void on_searchView_textChanged(const QString &arg1);
+    
+    void on_pNew_triggered();
+    
+    void on_pSaveAs_triggered();
+    
+    void on_pDelete_triggered();
+    
 private:
     Ui::MainWindow *ui;
     void firstOpen();
     void receiveMessages(int, int, int, QString, int, QString, QString);
+    void initDataBase();
+    void initNewDataBase();
+    void openDataBase();
+    void newTabel();
+    void addModel();
+
     QSqlDatabase dataBase;
+    QSqlQuery query;
+    QSqlTableModel *model;
 
     QFileDialog fileDialog;
     QString filePath;
     QString dataPath = "./data.txt";
+    QFile file;
+
 };
 
 #endif // MAINWINDOW_H

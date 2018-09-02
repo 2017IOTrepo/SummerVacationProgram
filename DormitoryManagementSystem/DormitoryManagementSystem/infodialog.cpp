@@ -55,19 +55,19 @@ bool InfoDialog::recordData(){
 
         docNum = ui->docNumberEdit->text().toInt(&isOK);
         if(isOK == false){
-            falseText.append("学生宿舍号 ");
+            falseText.append("宿舍号 ");
         }
         docClass = ui->docClassEdit->text().toInt(&isOK);
         if(isOK == false){
-            falseText.append("学生班级号 ");
+            falseText.append("宿舍所属班级 ");
         }
         docPeo = ui->docPeoEdit->text().toInt(&isOK);
         if(isOK == false){
-            falseText.append("学生人数 ");
+            falseText.append("宿舍人数 ");
         }
         stuNumber = ui->docNumberEdit->text().toInt(&isOK);
         if(isOK == false){
-            falseText.append("学生学号");
+            falseText.append("学生学号 ");
         }
 
         stuName = ui->stuNameEdit->text();
