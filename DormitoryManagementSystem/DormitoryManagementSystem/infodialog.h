@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QString>
+//#include "mainwindow.h"
 
 namespace Ui {
 class InfoDialog;
@@ -16,6 +17,8 @@ public:
     explicit InfoDialog(QWidget *parent = 0);
     ~InfoDialog();
 
+    void dealEditSignal(int, int, int, QString, int, QString, QString);
+
 signals:
     void sendMessages(int, int, int, QString,
                       int, QString, QString);
@@ -28,6 +31,7 @@ private slots:
 private:
     Ui::InfoDialog *ui;
     bool recordData();
+    void clear();
 
     QString falseText;
     int docNum;

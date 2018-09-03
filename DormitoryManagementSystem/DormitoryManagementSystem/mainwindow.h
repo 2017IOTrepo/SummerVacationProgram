@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "infodialog.h"
+
 #include <QMainWindow>
 //文件对话框
 #include <QFileDialog>
@@ -10,8 +12,8 @@
 #include <QVariantList>
 //表格模型
 #include <QSqlTableModel>
-
-#include "infodialog.h"
+#include <QSqlRecord>
+#include <QVariant>
 
 namespace Ui {
 class MainWindow;
@@ -28,7 +30,6 @@ public:
     InfoDialog infodialog;
 
 signals:
-
 
 private slots:
     void on_pOpen_triggered();
@@ -59,6 +60,8 @@ private slots:
 
     void on_pSave_triggered();
 
+    void on_pEdit_triggered();
+
 private:
     Ui::MainWindow *ui;
     void firstOpen();
@@ -73,6 +76,7 @@ private:
     QSqlDatabase dataBase;
     QSqlQuery query;
     QSqlTableModel *model;
+    QSqlRecord record;
 
     QFileDialog fileDialog;
     QString filePath;
@@ -81,6 +85,8 @@ private:
 
     bool isUp = false;
     int sortType = 0;
+    int editRow = -1;
+    bool isEdit = false;
 
 };
 

@@ -120,25 +120,37 @@ void MainWindow::on_pClose_triggered()
 
 void MainWindow::on_pAdd_triggered()
 {
-    //model->submitAll();
+    infodialog.setWindowTitle(QString("新建学生信息"));
     infodialog.exec();
 }
 
 void MainWindow::receiveMessages(int docNum, int docClass, int docPeo,
                                  QString stuName, int stuNumber, QString stuSex, QString stuMajor){
-    qDebug() << docNum << docClass << docPeo << stuName << stuNumber << stuSex << stuMajor;
-    QSqlRecord record = model->record();//获取空记录
-    record.setValue(0 , docNum);
-    record.setValue(1 , docClass);
-    record.setValue(2 , docPeo);
-    record.setValue(3 , stuName);
-    record.setValue(4 , stuNumber);
-    record.setValue(5 , stuSex);
-    record.setValue(6 , stuMajor);
-    //获取行号
-    int row = model->rowCount();
-    model->insertRecord(row, record);
-    return;
+    qDebug() << docNum << docClass << docPeo << stuName << stuNumber << stuSex << stuMajor << editRow;
+    if((editRow == -1) && !isEdit){
+        record = model->record();//获取空记录
+        record.setValue(0 , docNum);
+        record.setValue(1 , docClass);
+        record.setValue(2 , docPeo);
+        record.setValue(3 , stuName);
+        record.setValue(4 , stuNumber);
+        record.setValue(5 , stuSex);
+        record.setValue(6 , stuMajor);
+        //获取行号
+        int row = model->rowCount();
+        model->insertRecord(row, record);
+    }else{
+        record.setValue(0 , docNum);
+        record.setValue(1 , docClass);
+        record.setValue(2 , docPeo);
+        record.setValue(3 , stuName);
+        record.setValue(4 , stuNumber);
+        record.setValue(5 , stuSex);
+        record.setValue(6 , stuMajor);
+        model->setRecord(editRow, record);
+        isEdit = false;
+    }
+
 }
 
 void MainWindow::on_startSort_clicked()
@@ -146,7 +158,7 @@ void MainWindow::on_startSort_clicked()
     switch(sortType){
 
     case 0:
-        query.prepare("select areaName from area order by convert(areaName USING gbk) COLLATE gbk_chinese_ci asc");
+        //query.prepare("select areaName from area order by convert(areaName USING gbk) COLLATE gbk_chinese_ci asc");
         upOrDownSort(3);
         break;
 
@@ -182,7 +194,22 @@ void MainWindow::on_pNew_triggered()
 
 void MainWindow::on_pEdit_triggered()
 {
+    editRow = ui->tableView->currentIndex().row();
+    record = model->record(editRow);
 
+    int docNum = record.value(0).toInt();
+    int docClass = record.value(1).toInt();
+    int docPeo = record.value(2).toInt();
+    QString stuName = record.value(3).toString();
+    int stuNumber = record.value(4).toInt();
+    QString stuSex = record.value(5).toString();
+    QString stuMajor = record.value(6).toString();
+
+    qDebug() << docNum << docClass << docPeo << stuName << stuNumber << stuSex << stuMajor;
+    infodialog.dealEditSignal(docNum, docClass, docPeo, stuName, stuNumber, stuSex, stuMajor);
+    isEdit = true;
+    infodialog.setWindowTitle(QString("修改学生信息"));
+    infodialog.exec();
 }
 
 void MainWindow::on_pSave_triggered()

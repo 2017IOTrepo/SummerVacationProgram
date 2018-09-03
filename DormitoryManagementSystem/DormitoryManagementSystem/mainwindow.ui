@@ -222,6 +222,7 @@
    <addaction name="pClose"/>
    <addaction name="separator"/>
    <addaction name="pAdd"/>
+   <addaction name="pEdit"/>
    <addaction name="pDelete"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -292,6 +293,16 @@
    </property>
    <property name="text">
     <string>打开</string>
+   </property>
+  </action>
+  <action name="pEdit">
+   <property name="icon">
+    <iconset>
+     <activeon>:/actions/edit-copy.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>编辑</string>
    </property>
   </action>
  </widget>

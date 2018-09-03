@@ -22,13 +22,7 @@ void InfoDialog::on_finalCheck_accepted()
     if(recordData()){
         emit sendMessages(docNum, docClass, docPeo, stuName, stuNumber, stuSex, stuMajor);
         qDebug() << "发送信号";
-        ui->docNumberEdit->clear();
-        ui->docClassEdit->clear();
-        ui->stuMajorEdit->clear();
-        ui->docPeoEdit->clear();
-        ui->stuNameEdit->clear();
-        ui->stuNumberEdit->clear();
-        this->close();
+        clear();
     }else{
         QMessageBox::critical(this, "error", "无法正确添加 请检查是否" + falseText + "信息错误！");
         falseText.clear();
@@ -37,6 +31,16 @@ void InfoDialog::on_finalCheck_accepted()
 
 void InfoDialog::on_finalCheck_rejected()
 {
+    clear();
+}
+
+void InfoDialog::clear(){
+    ui->docNumberEdit->clear();
+    ui->docClassEdit->clear();
+    ui->stuMajorEdit->clear();
+    ui->docPeoEdit->clear();
+    ui->stuNameEdit->clear();
+    ui->stuNumberEdit->clear();
     this->close();
 }
 
@@ -82,4 +86,19 @@ bool InfoDialog::recordData(){
     }
 
     return isOK;
+}
+
+void InfoDialog::dealEditSignal(int docNum, int docClass, int docPeo,
+                                QString stuName, int stuNumber, QString stuSex, QString stuMajor){
+    qDebug() << docNum << docClass << docPeo << stuName << stuNumber << stuSex << stuMajor;
+    ui->docNumberEdit->setText(QString::number(docNum, 10));
+    ui->docClassEdit->setText(QString::number(docClass, 10));
+    ui->docPeoEdit->setText(QString::number(docPeo, 10));
+    ui->stuNameEdit->setText(stuName);
+    ui->stuNumberEdit->setText(QString::number(stuNumber, 10));
+    if(stuSex == "男")
+        ui->stuSexCheck->setCurrentIndex(0);
+    else
+        ui->stuSexCheck->setCurrentIndex(1);
+    ui->stuMajorEdit->setText(stuMajor);
 }

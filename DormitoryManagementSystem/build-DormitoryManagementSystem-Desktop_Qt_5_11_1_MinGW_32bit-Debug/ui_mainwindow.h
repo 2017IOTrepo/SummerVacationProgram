@@ -40,6 +40,7 @@ public:
     QAction *pAdd;
     QAction *pDelete;
     QAction *pOpen;
+    QAction *pEdit;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QSpacerItem *verticalSpacer_5;
@@ -106,6 +107,11 @@ public:
         QIcon icon7;
         icon7.addFile(QStringLiteral(":/actions/document-open.png"), QSize(), QIcon::Active, QIcon::On);
         pOpen->setIcon(icon7);
+        pEdit = new QAction(MainWindow);
+        pEdit->setObjectName(QStringLiteral("pEdit"));
+        QIcon icon8;
+        icon8.addFile(QStringLiteral(":/actions/edit-copy.png"), QSize(), QIcon::Active, QIcon::On);
+        pEdit->setIcon(icon8);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -228,6 +234,7 @@ public:
         mainToolBar->addAction(pClose);
         mainToolBar->addSeparator();
         mainToolBar->addAction(pAdd);
+        mainToolBar->addAction(pEdit);
         mainToolBar->addAction(pDelete);
 
         retranslateUi(MainWindow);
@@ -245,6 +252,7 @@ public:
         pAdd->setText(QApplication::translate("MainWindow", "\346\267\273\345\212\240", nullptr));
         pDelete->setText(QApplication::translate("MainWindow", "\345\210\240\351\231\244", nullptr));
         pOpen->setText(QApplication::translate("MainWindow", "\346\211\223\345\274\200", nullptr));
+        pEdit->setText(QApplication::translate("MainWindow", "\347\274\226\350\276\221", nullptr));
         startSort->setText(QApplication::translate("MainWindow", "\345\274\200\345\247\213\346\216\222\345\272\217", nullptr));
         label->setText(QApplication::translate("MainWindow", "\346\220\234\347\264\242", nullptr));
         label_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">\346\216\222\345\272\217\346\226\271\345\274\217</span></p></body></html>", nullptr));

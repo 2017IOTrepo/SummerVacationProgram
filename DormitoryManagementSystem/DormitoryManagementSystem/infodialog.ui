@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>新建学生信息</string>
+   <string/>
   </property>
   <property name="windowIcon">
    <iconset resource="icon.qrc">
@@ -49,20 +49,6 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>宿舍人数</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="docPeoEdit"/>
-     </item>
-    </layout>
-   </item>
-   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QLabel" name="label_5">
@@ -73,6 +59,20 @@
      </item>
      <item>
       <widget class="QLineEdit" name="docClassEdit"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>宿舍人数</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="docPeoEdit"/>
      </item>
     </layout>
    </item>

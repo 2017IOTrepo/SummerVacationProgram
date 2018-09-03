@@ -31,12 +31,12 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *label_3;
     QLineEdit *docNumberEdit;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *label_4;
-    QLineEdit *docPeoEdit;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_5;
     QLineEdit *docClassEdit;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label_4;
+    QLineEdit *docPeoEdit;
     QLabel *label_2;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_6;
@@ -89,21 +89,6 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        label_4 = new QLabel(InfoDialog);
-        label_4->setObjectName(QStringLiteral("label_4"));
-
-        horizontalLayout_2->addWidget(label_4);
-
-        docPeoEdit = new QLineEdit(InfoDialog);
-        docPeoEdit->setObjectName(QStringLiteral("docPeoEdit"));
-
-        horizontalLayout_2->addWidget(docPeoEdit);
-
-
-        verticalLayout->addLayout(horizontalLayout_2);
-
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         label_5 = new QLabel(InfoDialog);
@@ -118,6 +103,21 @@ public:
 
 
         verticalLayout->addLayout(horizontalLayout_3);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        label_4 = new QLabel(InfoDialog);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        horizontalLayout_2->addWidget(label_4);
+
+        docPeoEdit = new QLineEdit(InfoDialog);
+        docPeoEdit->setObjectName(QStringLiteral("docPeoEdit"));
+
+        horizontalLayout_2->addWidget(docPeoEdit);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
 
         label_2 = new QLabel(InfoDialog);
         label_2->setObjectName(QStringLiteral("label_2"));
@@ -213,11 +213,11 @@ public:
 
     void retranslateUi(QDialog *InfoDialog)
     {
-        InfoDialog->setWindowTitle(QApplication::translate("InfoDialog", "\346\226\260\345\273\272\345\255\246\347\224\237\344\277\241\346\201\257", nullptr));
+        InfoDialog->setWindowTitle(QString());
         label->setText(QApplication::translate("InfoDialog", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">\345\256\277\350\210\215\344\277\241\346\201\257</span></p></body></html>", nullptr));
         label_3->setText(QApplication::translate("InfoDialog", "\345\256\277\350\210\215\345\217\267", nullptr));
-        label_4->setText(QApplication::translate("InfoDialog", "\345\256\277\350\210\215\344\272\272\346\225\260", nullptr));
         label_5->setText(QApplication::translate("InfoDialog", "\346\211\200\345\261\236\347\217\255\347\272\247", nullptr));
+        label_4->setText(QApplication::translate("InfoDialog", "\345\256\277\350\210\215\344\272\272\346\225\260", nullptr));
         label_2->setText(QApplication::translate("InfoDialog", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">\345\255\246\347\224\237\344\277\241\346\201\257</span></p></body></html>", nullptr));
         label_6->setText(QApplication::translate("InfoDialog", "\345\255\246\347\224\237\345\247\223\345\220\215", nullptr));
         label_7->setText(QApplication::translate("InfoDialog", "\345\255\246\347\224\237\345\255\246\345\217\267", nullptr));
