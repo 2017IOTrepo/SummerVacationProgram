@@ -26,15 +26,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    infodialog.cpp
+    infodialog.cpp \
+    namedialog.cpp
 
 HEADERS += \
         mainwindow.h \
-    infodialog.h
+    infodialog.h \
+    namedialog.h
 
 FORMS += \
         mainwindow.ui \
-    infodialog.ui
+    infodialog.ui \
+    namedialog.ui
 
 RESOURCES += \
     icon.qrc

@@ -31,6 +31,7 @@ void InfoDialog::on_finalCheck_accepted()
 
 void InfoDialog::on_finalCheck_rejected()
 {
+    ifChanged = false;
     clear();
 }
 

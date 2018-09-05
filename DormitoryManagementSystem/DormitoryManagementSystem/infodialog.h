@@ -18,6 +18,7 @@ public:
     ~InfoDialog();
 
     void dealEditSignal(int, int, int, QString, int, QString, QString);
+    bool ifChanged = false;
 
 signals:
     void sendMessages(int, int, int, QString,

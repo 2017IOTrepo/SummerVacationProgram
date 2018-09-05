@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "infodialog.h"
+//#include "namedialog.h"
 
 #include <QMainWindow>
 //文件对话框
@@ -26,8 +27,10 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void closeEvent(QCloseEvent *event);
 
     InfoDialog infodialog;
+    //NameDialog namedialog;
 
 signals:
 
@@ -43,9 +46,7 @@ private slots:
     void on_searchView_textChanged(const QString &arg1);
     
     void on_pNew_triggered();
-    
-    void on_pSaveAs_triggered();
-    
+        
     void on_pDelete_triggered();
     
     void on_downSort_clicked(bool checked);
@@ -72,6 +73,7 @@ private:
     void addModel();
 
     void upOrDownSort(int);
+    void setHeader();
 
     QSqlDatabase dataBase;
     QSqlQuery query;
@@ -82,6 +84,7 @@ private:
     QString filePath;
     QString dataPath = "./data.txt";
     QFile file;
+    QString fileName;
 
     bool isUp = false;
     int sortType = 0;

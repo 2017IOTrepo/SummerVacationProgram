@@ -1,0 +1,1 @@
+windeployqt youProgramName.exe,然后文件夹下就会出现所有依赖。

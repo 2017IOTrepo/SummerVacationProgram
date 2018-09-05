@@ -14,10 +14,14 @@
 #include <QVariantList>
 //表格模型
 #include <QSqlTableModel>
+#include <QItemSelectionModel>
 //记录类
 #include <QSqlRecord>
 #include <QVariant>
 #include <QByteArray>
+#include <QFile>
+#include <QEvent>
+#include <QCloseEvent>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -31,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    //记录上一次打开的文件
     file.open(QIODevice::WriteOnly);
     file.write(filePath.toUtf8());
 
@@ -39,6 +44,21 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//覆写关闭事件 实现关闭前保存
+void MainWindow::closeEvent(QCloseEvent *event){
+    if(infodialog.ifChanged){
+        int ok = QMessageBox::warning(this,tr("确认保存!"),tr("您还有尚未保存的条目，请问是否保存！"),
+            QMessageBox::Yes,QMessageBox::No);
+        if(ok == QMessageBox::Yes){
+            model->submitAll();//是则保存
+            event->accept();
+        }else{
+            event->ignore();
+        }
+    }
+}
+
+//初始化
 void MainWindow::firstOpen(){
     dataBase = QSqlDatabase::addDatabase("QSQLITE");
     file.setFileName(dataPath);
@@ -61,10 +81,11 @@ void MainWindow::firstOpen(){
 
 void MainWindow::on_pOpen_triggered()
 {
-    filePath = fileDialog.getOpenFileName(this, "open", "../", "sql(*.db)");
+    filePath = fileDialog.getOpenFileName(this, "打开", "../", "sql(*.db)");
     initDataBase();
 }
 
+//初始化
 void MainWindow::initDataBase(){
     query = QSqlQuery(dataBase);
     openDataBase();
@@ -79,11 +100,8 @@ void MainWindow::openDataBase(){
     }
 }
 
+//新建表
 void MainWindow::newTabel(){
-//    bool isSuccess = query.exec("create table student(DormitoryNumber int, DormitoryClass int, DormitoryPeopleNumber int, "
-//                                "StudentName varchar(50) primary key, StudentNumber int, StudentSex varchar(4), StudentMajor varchar(50));");
-//    bool isSuccess = query.exec("create table student(宿舍号 int, 所属班级 int, 宿舍人数 int, 学生姓名 varchar(50), \
-//                                    学号 int, 学生性别 varchar(4), 学生专业 varchar(50));");
     bool isSuccess = query.exec("create table student(docNum INTEGER, docClass INTEGER, docPeo INTEGER, stuName varchar(50) primary key, \
                                 stuNum INTEGER, stuSex varchar(4), stuMajor varchar(50));");
     if(isSuccess){
@@ -93,6 +111,7 @@ void MainWindow::newTabel(){
     }
 }
 
+//添加模型到视图
 void MainWindow::addModel(){
     model = new QSqlTableModel(this);
     model->setTable("student");
@@ -100,6 +119,14 @@ void MainWindow::addModel(){
     ui->tableView->setModel(model);
     model->select();
 
+    setHeader();
+
+    model->setEditStrategy(QSqlTableModel::OnManualSubmit);//设置手动提交
+    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+}
+
+//设置标题
+void MainWindow::setHeader(){
     //设置标题
     model->setHeaderData(0, Qt::Horizontal, "宿舍号");
     model->setHeaderData(1, Qt::Horizontal, "所属班级");
@@ -108,9 +135,6 @@ void MainWindow::addModel(){
     model->setHeaderData(4, Qt::Horizontal, "学号");
     model->setHeaderData(5, Qt::Horizontal, "学生性别");
     model->setHeaderData(6, Qt::Horizontal, "学生专业");
-
-    model->setEditStrategy(QSqlTableModel::OnManualSubmit);//设置手动提交
-    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 void MainWindow::on_pClose_triggered()
@@ -120,6 +144,7 @@ void MainWindow::on_pClose_triggered()
 
 void MainWindow::on_pAdd_triggered()
 {
+    infodialog.ifChanged = true;
     infodialog.setWindowTitle(QString("新建学生信息"));
     infodialog.exec();
 }
@@ -153,6 +178,7 @@ void MainWindow::receiveMessages(int docNum, int docClass, int docPeo,
 
 }
 
+//排序 有空写姓氏排序
 void MainWindow::on_startSort_clicked()
 {
     switch(sortType){
@@ -184,16 +210,54 @@ void MainWindow::upOrDownSort(int line){
 
 void MainWindow::on_searchView_textChanged(const QString &arg1)
 {
+    if(!arg1.isEmpty()){
+        switch (ui->searchChoice->currentIndex()) {
 
+        //精确查找 模糊查找以后写
+        case 0:
+        {
+            QString stuName = QString("stuName = '%1'").arg(arg1);
+            model->setFilter(stuName);
+        }
+            break;
+
+        case 1:
+        {
+            QString stuNum = QString("stuNum = '%1'").arg(arg1);
+            model->setFilter(stuNum);
+        }
+            break;
+
+        case 2:
+        {
+            QString docNum = QString("docNum = '%1'").arg(arg1);
+            model->setFilter(docNum);
+        }
+            break;
+
+        }
+    }else{
+        model->setTable("student");
+        setHeader();
+    }
+    model->select();
 }
 
 void MainWindow::on_pNew_triggered()
 {
-
+    //namedialog.exec();
+    QString newFilePath = fileDialog.getSaveFileName(this, "新建", "../", "sql(*.db)");
+    qDebug() << newFilePath;
+    QFile newFile;
+    newFile.setFileName(newFilePath);
+    newFile.open(QIODevice::WriteOnly);
+    filePath = newFilePath;
+    initDataBase();
 }
 
 void MainWindow::on_pEdit_triggered()
 {
+    infodialog.ifChanged = true;
     editRow = ui->tableView->currentIndex().row();
     record = model->record(editRow);
 
@@ -214,6 +278,7 @@ void MainWindow::on_pEdit_triggered()
 
 void MainWindow::on_pSave_triggered()
 {
+    infodialog.ifChanged = false;
     bool issuccessful = model->submitAll();
     if(issuccessful){
         qDebug() << "成功";
@@ -222,23 +287,25 @@ void MainWindow::on_pSave_triggered()
     }
 }
 
-void MainWindow::on_pSaveAs_triggered()
-{
-
-}
-
 void MainWindow::on_pDelete_triggered()
 {
-    int delRow = ui->tableView->currentIndex().row();
-    model->removeRow(delRow);
-    int ok = QMessageBox::warning(this,tr("删除当前行!"),tr("你确定"
-    "删除当前行吗？"),
-    QMessageBox::Yes,QMessageBox::No);
-    if(ok == QMessageBox::No)
-    {
-    model->revertAll();//如果不删除，则撤销
-    }
-    else{
+    //单行删除
+//    int delRow = ui->tableView->currentIndex().row();
+//    model->removeRow(delRow);
+
+    //多行删除
+    //获取选中模型
+    QItemSelectionModel *selectModel = ui->tableView->selectionModel();
+    QModelIndexList rowsList = selectModel->selectedRows();
+    //删除所有行
+    for(int i=0; i<rowsList.size(); i++)
+        model->removeRow(rowsList.at(i).row());
+    int ok = QMessageBox::warning(this,tr("删除选中行!"),tr("你确定"
+        "删除当前选中的行吗？"),
+        QMessageBox::Yes,QMessageBox::No);
+    if(ok == QMessageBox::No){
+        model->revertAll();//如果不删除，则撤销
+    }else{
         model->submitAll(); //否则提交，在数据库中删除该行
     }
 }

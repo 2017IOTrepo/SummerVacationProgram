@@ -218,7 +218,6 @@
    <addaction name="pOpen"/>
    <addaction name="pNew"/>
    <addaction name="pSave"/>
-   <addaction name="pSaveAs"/>
    <addaction name="pClose"/>
    <addaction name="separator"/>
    <addaction name="pAdd"/>
@@ -244,16 +243,6 @@
    </property>
    <property name="text">
     <string>保存</string>
-   </property>
-  </action>
-  <action name="pSaveAs">
-   <property name="icon">
-    <iconset>
-     <activeon>:/actions/filesaveas.png</activeon>
-    </iconset>
-   </property>
-   <property name="text">
-    <string>另存为</string>
    </property>
   </action>
   <action name="pClose">
