@@ -226,6 +226,9 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="pNew">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset>
      <activeon>:/actions/document-new.png</activeon>

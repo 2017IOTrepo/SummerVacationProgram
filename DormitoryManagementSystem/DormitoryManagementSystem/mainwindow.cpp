@@ -35,12 +35,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    //记录上一次打开的文件
-    file.open(QIODevice::WriteOnly);
-    file.write(filePath.toUtf8());
+    if(!isOpenOk){
+        //记录上一次打开的文件
+        file.open(QIODevice::WriteOnly);
+        file.write(filePath.toUtf8());
 
-    file.close();
-    model->submitAll();
+        file.close();
+        model->submitAll();
+    }
+
     delete ui;
 }
 
@@ -70,19 +73,40 @@ void MainWindow::firstOpen(){
         QFile dataFile(filePath);
 
         if(dataFile.open(QIODevice::ReadOnly)){
+            isOpenOk = true;
             initDataBase();
         }else{
+            isOpenOk = false;
             QMessageBox::warning(this, "warning", "无法读取上次打开的文件!\n请手动打开!");
         }
 
     }
     file.close();
+    turnUI();
+}
+
+void MainWindow::turnUI(){
+    if(isOpenOk){
+        ui->pAdd->setEnabled(true);
+        ui->pEdit->setEnabled(true);
+        ui->pDelete->setEnabled(true);
+        ui->pSave->setEnabled(true);
+    }else {
+        ui->pAdd->setEnabled(false);
+        ui->pEdit->setEnabled(false);
+        ui->pDelete->setEnabled(false);
+        ui->pSave->setEnabled(false);
+    }
 }
 
 void MainWindow::on_pOpen_triggered()
 {
     filePath = fileDialog.getOpenFileName(this, "打开", "../", "sql(*.db)");
-    initDataBase();
+    if(!filePath.isEmpty()){
+        isOpenOk = true;
+        turnUI();
+        initDataBase();
+    }
 }
 
 //初始化
@@ -96,6 +120,8 @@ void MainWindow::initDataBase(){
 void MainWindow::openDataBase(){
     dataBase.setDatabaseName(filePath);
     if(!dataBase.open()){
+        isOpenOk = false;
+        turnUI();
         QMessageBox::critical(this, "错误", "打开数据库错误\n" + dataBase.lastError().text());
     }
 }
@@ -247,12 +273,16 @@ void MainWindow::on_pNew_triggered()
 {
     //namedialog.exec();
     QString newFilePath = fileDialog.getSaveFileName(this, "新建", "../", "sql(*.db)");
-    qDebug() << newFilePath;
-    QFile newFile;
-    newFile.setFileName(newFilePath);
-    newFile.open(QIODevice::WriteOnly);
-    filePath = newFilePath;
-    initDataBase();
+    qDebug() << newFilePath << "地址";
+    if(!newFilePath.isEmpty()){
+        QFile newFile;
+        newFile.setFileName(newFilePath);
+        newFile.open(QIODevice::WriteOnly);
+        filePath = newFilePath;
+        isOpenOk = true;
+        turnUI();
+        initDataBase();
+    }
 }
 
 void MainWindow::on_pEdit_triggered()

@@ -71,6 +71,7 @@ private:
     void openDataBase();
     void newTabel();
     void addModel();
+    void turnUI();
 
     void upOrDownSort(int);
     void setHeader();
@@ -90,6 +91,7 @@ private:
     int sortType = 0;
     int editRow = -1;
     bool isEdit = false;
+    bool isOpenOk = true;
 
 };
 

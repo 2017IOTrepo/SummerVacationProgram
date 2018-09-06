@@ -73,6 +73,7 @@ public:
         MainWindow->setWindowIcon(icon);
         pNew = new QAction(MainWindow);
         pNew->setObjectName(QStringLiteral("pNew"));
+        pNew->setEnabled(true);
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/actions/document-new.png"), QSize(), QIcon::Active, QIcon::On);
         pNew->setIcon(icon1);
