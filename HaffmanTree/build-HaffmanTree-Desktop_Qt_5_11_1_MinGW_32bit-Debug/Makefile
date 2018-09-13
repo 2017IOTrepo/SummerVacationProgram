@@ -200,6 +200,7 @@ Makefile: ../HaffmanTree/HaffmanTree.pro ../../../../anzhuang/QtCreator/5.11.1/m
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/qt_config.prf \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/toolchain.prf \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/default_pre.prf \
@@ -367,6 +368,7 @@ Makefile: ../HaffmanTree/HaffmanTree.pro ../../../../anzhuang/QtCreator/5.11.1/m
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/qt_config.prf:
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/win32-g++/qmake.conf:
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/exclusive_builds.prf:
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/toolchain.prf:
 ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/default_pre.prf:

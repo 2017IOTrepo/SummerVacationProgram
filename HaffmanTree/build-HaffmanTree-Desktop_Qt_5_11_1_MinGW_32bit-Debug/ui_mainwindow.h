@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
@@ -27,6 +28,7 @@ public:
     QAction *pOpen;
     QAction *pCompressSave;
     QAction *pUnzip;
+    QAction *pNew;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QTextEdit *mainTextView;
@@ -38,21 +40,29 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(700, 600);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/actions/filefind.png"), QSize(), QIcon::Normal, QIcon::Off);
+        MainWindow->setWindowIcon(icon);
         pOpen = new QAction(MainWindow);
         pOpen->setObjectName(QStringLiteral("pOpen"));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/actions/document-open.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pOpen->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/actions/document-open.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pOpen->setIcon(icon1);
         pCompressSave = new QAction(MainWindow);
         pCompressSave->setObjectName(QStringLiteral("pCompressSave"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/actions/down.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pCompressSave->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/actions/down.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pCompressSave->setIcon(icon2);
         pUnzip = new QAction(MainWindow);
         pUnzip->setObjectName(QStringLiteral("pUnzip"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/actions/go-up.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pUnzip->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/actions/go-up.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pUnzip->setIcon(icon3);
+        pNew = new QAction(MainWindow);
+        pNew->setObjectName(QStringLiteral("pNew"));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/actions/document-new.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pNew->setIcon(icon4);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -72,6 +82,7 @@ public:
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
 
+        mainToolBar->addAction(pNew);
         mainToolBar->addAction(pOpen);
         mainToolBar->addAction(pCompressSave);
         mainToolBar->addAction(pUnzip);
@@ -83,10 +94,11 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "\345\223\210\345\244\253\346\233\274\347\274\226\347\240\201\345\244\204\347\220\206\347\263\273\347\273\237", nullptr));
         pOpen->setText(QApplication::translate("MainWindow", "\346\211\223\345\274\200", nullptr));
         pCompressSave->setText(QApplication::translate("MainWindow", "\345\216\213\347\274\251\344\277\235\345\255\230", nullptr));
         pUnzip->setText(QApplication::translate("MainWindow", "\350\247\243\347\240\201\344\277\235\345\255\230", nullptr));
+        pNew->setText(QApplication::translate("MainWindow", "\346\226\260\345\273\272", nullptr));
     } // retranslateUi
 
 };

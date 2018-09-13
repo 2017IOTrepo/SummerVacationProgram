@@ -1,12 +1,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "haffmantree.h"
 #include "savedialog.h"
+#include "haffmantree.h"
 #include <QMainWindow>
 #include <QTextEdit>
 //文件对话框
 #include <QFileDialog>
+
+#define ENGBET 27
 
 namespace Ui {
 class MainWindow;
@@ -29,11 +31,12 @@ private slots:
 
     void on_pOpen_triggered();
 
-    void on_mainTextView_textChanged();
+    void on_pNew_triggered();
 
 private:
     Ui::MainWindow *ui;
     void firstOpen();
+    void turnUI(bool);
 
     bool isOpenOk = false;
 

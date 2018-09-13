@@ -80,6 +80,9 @@ void MainWindow::firstOpen(){
             QMessageBox::warning(this, "warning", "无法读取上次打开的文件!\n请手动打开!");
         }
 
+    }else {
+        isOpenOk = false;
+        turnUI();
     }
     file.close();
     turnUI();

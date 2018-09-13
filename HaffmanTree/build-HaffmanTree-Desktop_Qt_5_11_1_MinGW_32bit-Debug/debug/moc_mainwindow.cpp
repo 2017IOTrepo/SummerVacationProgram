@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[6];
-    char stringdata0[106];
+    char stringdata0[96];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,12 +36,12 @@ QT_MOC_LITERAL(1, 11, 19), // "on_pUnzip_triggered"
 QT_MOC_LITERAL(2, 31, 0), // ""
 QT_MOC_LITERAL(3, 32, 26), // "on_pCompressSave_triggered"
 QT_MOC_LITERAL(4, 59, 18), // "on_pOpen_triggered"
-QT_MOC_LITERAL(5, 78, 27) // "on_mainTextView_textChanged"
+QT_MOC_LITERAL(5, 78, 17) // "on_pNew_triggered"
 
     },
     "MainWindow\0on_pUnzip_triggered\0\0"
     "on_pCompressSave_triggered\0"
-    "on_pOpen_triggered\0on_mainTextView_textChanged"
+    "on_pOpen_triggered\0on_pNew_triggered"
 };
 #undef QT_MOC_LITERAL
 
@@ -82,7 +82,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->on_pUnzip_triggered(); break;
         case 1: _t->on_pCompressSave_triggered(); break;
         case 2: _t->on_pOpen_triggered(); break;
-        case 3: _t->on_mainTextView_textChanged(); break;
+        case 3: _t->on_pNew_triggered(); break;
         default: ;
         }
     }

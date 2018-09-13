@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>哈夫曼编码处理系统</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/actions/filefind.png</normaloff>:/actions/filefind.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -27,6 +31,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="pNew"/>
    <addaction name="pOpen"/>
    <addaction name="pCompressSave"/>
    <addaction name="pUnzip"/>
@@ -57,6 +62,15 @@
    </property>
    <property name="text">
     <string>解码保存</string>
+   </property>
+  </action>
+  <action name="pNew">
+   <property name="icon">
+    <iconset resource="icon.qrc">
+     <normaloff>:/actions/document-new.png</normaloff>:/actions/document-new.png</iconset>
+   </property>
+   <property name="text">
+    <string>新建</string>
    </property>
   </action>
  </widget>

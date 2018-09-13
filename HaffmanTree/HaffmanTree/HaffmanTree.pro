@@ -26,13 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    haffmantree.cpp \
-    savedialog.cpp
+    savedialog.cpp \
+    haffmantree.cpp
 
 HEADERS += \
         mainwindow.h \
-    haffmantree.h \
-    savedialog.h
+    savedialog.h \
+    haffmantree.h
 
 FORMS += \
         mainwindow.ui \
@@ -40,3 +40,5 @@ FORMS += \
 
 RESOURCES += \
     icon.qrc
+
+CONFIG += C++11
