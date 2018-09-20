@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QCloseEvent>
+#include <QLabel>
 
 namespace Ui {
 class SaveDialog;
@@ -16,8 +17,10 @@ public:
     explicit SaveDialog(QWidget *parent = 0);
     ~SaveDialog();
 
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event);//覆写关闭事件
     void reject();
+    QLabel *text;
+    bool isClose = false;
 
 private slots:
 

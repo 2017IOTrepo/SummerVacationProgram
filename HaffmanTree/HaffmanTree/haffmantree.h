@@ -6,12 +6,13 @@ class HaffmanTree
 {
 public:
     HaffmanTree();
-    HaffmanTree(HaffmanTree *, HaffmanTree *, int, int);
+    HaffmanTree(char, int);
+    HaffmanTree(HaffmanTree *, HaffmanTree *, char, int);
 
-    HaffmanTree *left;
-    HaffmanTree *right;
+    HaffmanTree *left;//左节点
+    HaffmanTree *right;//右节点
 
-    int engNum;
+    char fileChar;
     int weight;
 
 };

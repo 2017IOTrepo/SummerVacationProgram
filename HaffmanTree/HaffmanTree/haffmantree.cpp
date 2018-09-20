@@ -4,12 +4,19 @@ HaffmanTree::HaffmanTree()
 {
     left = right = nullptr;
     weight = 0;
-    engNum = -1;
+    fileChar = '\0';
 }
 
-HaffmanTree::HaffmanTree(HaffmanTree *left, HaffmanTree *right, int engNum, int weight){
+HaffmanTree::HaffmanTree(char fileChar, int weight)
+{
+    this->fileChar = fileChar;
+    this->weight = weight;
+    left = right = nullptr;
+}
+
+HaffmanTree::HaffmanTree(HaffmanTree *left, HaffmanTree *right, char fileChar, int weight){
     this->left = left;
     this->right = right;
-    this->engNum = engNum;
+    this->fileChar = fileChar;
     this->weight = weight;
 }

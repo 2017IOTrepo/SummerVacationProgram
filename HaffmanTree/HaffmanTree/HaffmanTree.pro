@@ -32,7 +32,8 @@ SOURCES += \
 HEADERS += \
         mainwindow.h \
     savedialog.h \
-    haffmantree.h
+    haffmantree.h \
+    vector.h
 
 FORMS += \
         mainwindow.ui \
