@@ -26,14 +26,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    savedialog.cpp \
     haffmantree.cpp
 
 HEADERS += \
         mainwindow.h \
-    savedialog.h \
-    haffmantree.h \
-    vector.h
+    haffmantree.h
 
 FORMS += \
         mainwindow.ui \

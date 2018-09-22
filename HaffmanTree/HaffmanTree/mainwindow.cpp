@@ -1,20 +1,20 @@
 /*
  * 四种情况
- * 1.普通打开
- * 2.哈夫曼打开
- * 3.普通保存
- * 4.哈夫曼保存
+ * 1.普通打开(完成)
+ * 2.哈夫曼打开()(待改进
+ * 3.普通保存(完成)
+ * 4.哈夫曼保存(完成)(待改进
  * 但4^4 = 16方法，操作不当有很大可能失误
  * 如果改变只能从新编码保存
 */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "savedialog.h"
 
 #include <QDebug>
 #include <QCloseEvent>
-#include <vector>
-#define ENGBET 256
+#include <iostream>
+#include <QString>
+//#define ENGBET 512
 
 using namespace std;
 
@@ -24,8 +24,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-//    fileChar = new int[ENGBET];
-//    *fileChar = {0};
     node = new HaffmanTree[ENGBET];
     firstOpen();
     mainText = ui->mainTextView;
@@ -96,12 +94,7 @@ void MainWindow::on_pUnzip_triggered()
 void MainWindow::on_pCompressSave_triggered()
 {
     this->setEnabled(false);
-    saveDialog.text->setText("<html><head/><body><p><span style=' font-size:12pt; "
-                             "font-weight:600;'>保存中····</span></p></body></html>");
-    saveDialog.show();
-    saveDialog.isClose = true;
-    saveDialog.close();
-    saveDialog.isClose = false;
+    saveByHaffman();
 }
 
 void MainWindow::on_pOpen_triggered()
@@ -137,54 +130,59 @@ void MainWindow::readFile(){
         isHaffman = true;
         readByNormal();
         readByHaffman();
-        changeToNormal();
         break;
 
     case QMessageBox::No:
         isHaffman = false;
         readByNormal();
-        break;
-
-    default:
+        mainText->setText(array);
         break;
     }
 }
 
 void MainWindow::readByHaffman(){
-    saveDialog.text->setText("<html><head/><body><p><span style=' font-size:12pt; "
-                             "font-weight:600;'>读取中····</span></p></body></html>");
-    saveDialog.show();
-    for(int i = 0; i<array.length(); i++){
-        fileChar[array[i]]++;
-    }
-
-    //没有用vector类
-    //因为对象问题
-    for(int i = 0; i<ENGBET; i++){
-        //qDebug() << fileChar[i];
-        if(fileChar[i]){
-            node[charCount++] = HaffmanTree((char)i, fileChar[i]);
-            qDebug() << (char)i << fileChar[i];
+    HaffmanTree *tesNode = node + charCount - 1;
+    QString text = "";
+    for(int i=0; i<array.length(); i++){
+        if(array[i] == '1'){
+            tesNode = tesNode->right;
+        }else if (array[i] == '0') {
+            tesNode = tesNode->left;
+        }
+        if(tesNode->left == NULL && tesNode->right == NULL){
+            text.append(tesNode->fileChar);
+            tesNode = node + charCount - 1;
         }
     }
+    mainText->setText(text);
+}
 
-    //手动去除多余的空间
-    HaffmanTree *oldNode = node;
-    node = new HaffmanTree[charCount];
-    for(int i=0; i<charCount; i++){
-        node[i] = oldNode[i];
+//每个node设置字符串仅是为了debug
+void MainWindow::setNum(HaffmanTree *node, QString numSet, bool left){
+    if(!isroot){
+        if(left){
+            numSet.append('0');
+            node->charWeight = '0';
+        }else {
+            numSet.append('1');
+            node->charWeight = '1';
+        }
     }
-    delete []oldNode;
-
-    sortByWeight(0, charCount - 1);
-
-    for(int i=0; i<charCount; i++){
-        qDebug() <<node[i].fileChar << node[i].weight;
+    if((node->left != NULL) && (node->right != NULL)){
+        isroot = false;
+        setNum(node->left, numSet, true);
+        setNum(node->right, numSet, false);
+    }else {
+        charSet[(int)(node->fileChar)] = numSet;
+        node->charWeight = numSet;
     }
+}
 
-    saveDialog.isClose = true;
-    saveDialog.close();
-    saveDialog.isClose = false;
+void MainWindow::insert(int lo, HaffmanTree father){
+    for(int i = charCount; i > lo; i--){
+        node[i] = node[i - 1];
+    }
+    node[lo] = father;
 }
 
 void MainWindow::sortByWeight(int lo, int hi){
@@ -215,10 +213,6 @@ void MainWindow::swap(int a, int b){
     node[b] = temp;
 }
 
-void MainWindow::changeToNormal(){
-
-}
-
 void MainWindow::readByNormal(){
     if(file.size() < 10000000){
         //默认只识别utf-8
@@ -229,21 +223,65 @@ void MainWindow::readByNormal(){
             array += file.readLine();
         }
     }
-    mainText->setText(array);
     //默认识别成普通编码形式
     isOpenOk = true;
     file.close();
 }
 
 void MainWindow::saveByHaffman(){
-    readByHaffman();
+    QString text = "";
+    array = mainText->toPlainText().toUtf8();
+    for(int i = 0; i<array.length(); i++){
+        fileChar[array[i]]++;
+    }
+
+    //没有用vector类
+    //因为对象问题
+    for(int i = 0; i<ENGBET; i++){
+        //qDebug() << fileChar[i];
+        if(fileChar[i]){
+            node[charCount++] = HaffmanTree((char)i, fileChar[i]);
+        }
+    }
+
+    sortByWeight(0, charCount - 1);
+    charSet = new QString[ENGBET];
+
+    for(int i = 0; i < charCount;){
+        HaffmanTree father((node + i), (node + i + 1),
+                           'r', node[i].weight + node[i+1].weight);
+        i += 2;
+        insert(i, father);
+        sortByWeight(i, charCount);
+        charCount++;
+    }
+    charCount--;
+
+    setNum((node + charCount - 1), "", true);
+
+    for(int i=0; i<charCount; i++)
+        qDebug() << node[i].fileChar << node[i].weight << node[i].left << node[i].right << node[i].charWeight;
+
+    for(int i=0; i<array.length(); i++){
+        text.append(charSet[(int)array[i]]);
+    }
+
+//    text.append(" ");
+//    for
+
+    if(file.open(QIODevice::WriteOnly)){
+        file.write(text.toUtf8());
+        isSave = true;
+        file.close();
+    }else {
+        QMessageBox::critical(this, "错误", "无法写入文件\n请检查文件是否损坏!");
+        isSave = false;
+    }
+    this->setEnabled(true);
 }
 
 void MainWindow::saveByNormal(){
     this->setEnabled(false);
-    saveDialog.text->setText("<html><head/><body><p><span style=' font-size:12pt; "
-                             "font-weight:600;'>保存中····</span></p></body></html>");
-    saveDialog.show();
     QString text = mainText->toPlainText();
     if(file.open(QIODevice::WriteOnly)){
         file.write(text.toUtf8());
@@ -253,9 +291,7 @@ void MainWindow::saveByNormal(){
         QMessageBox::critical(this, "错误", "无法写入文件\n请检查文件是否损坏!");
         isSave = false;
     }
-    saveDialog.isClose = true;
-    saveDialog.close();
-    saveDialog.isClose = false;
+    this->setEnabled(true);
 }
 
 void MainWindow::turnUI(bool ifTurn){

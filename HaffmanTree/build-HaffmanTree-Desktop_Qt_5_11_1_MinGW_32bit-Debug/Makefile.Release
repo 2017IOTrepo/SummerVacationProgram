@@ -47,24 +47,17 @@ OBJECTS_DIR   = release
 
 SOURCES       = ..\HaffmanTree\main.cpp \
 		..\HaffmanTree\mainwindow.cpp \
-		..\HaffmanTree\savedialog.cpp \
 		..\HaffmanTree\haffmantree.cpp release\qrc_icon.cpp \
-		release\moc_mainwindow.cpp \
-		release\moc_savedialog.cpp
+		release\moc_mainwindow.cpp
 OBJECTS       = release/main.o \
 		release/mainwindow.o \
-		release/savedialog.o \
 		release/haffmantree.o \
 		release/qrc_icon.o \
-		release/moc_mainwindow.o \
-		release/moc_savedialog.o
+		release/moc_mainwindow.o
 
 DIST          =  ..\HaffmanTree\mainwindow.h \
-		..\HaffmanTree\savedialog.h \
-		..\HaffmanTree\haffmantree.h \
-		..\HaffmanTree\vector.h ..\HaffmanTree\main.cpp \
+		..\HaffmanTree\haffmantree.h ..\HaffmanTree\main.cpp \
 		..\HaffmanTree\mainwindow.cpp \
-		..\HaffmanTree\savedialog.cpp \
 		..\HaffmanTree\haffmantree.cpp
 QMAKE_TARGET  = HaffmanTree
 DESTDIR        = release\ #avoid trailing-slash linebreak
@@ -85,10 +78,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) HaffmanTree.zip $(SOURCES) $(DIST) ..\HaffmanTree\HaffmanTree.pro ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\spec_pre.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\qdevice.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\device_config.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\common\sanitize.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\common\gcc-base.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\common\g++-base.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\common\angle.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\common\windows-vulkan.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\common\g++-win32.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\qconfig.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3danimation.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3drender.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axbase.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axserver.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_core.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_core_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_dbus.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_designer.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_edid_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gui.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_help.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_help_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_location.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_location_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_network.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_network_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_nfc.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_opengl.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioning.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioningquick.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioningquick_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qml.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quick.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_scxml.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sensors.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialport.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sql.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_svg.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_testlib.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_texttospeech.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_uitools.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_websockets.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_widgets.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_winextras.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xml.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\qt_functions.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\qt_config.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\win32-g++\qmake.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\exclusive_builds.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\toolchain.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\default_pre.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\win32\default_pre.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\resolve_config.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\exclusive_builds_post.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\default_post.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\build_pass.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\qml_debug.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\precompile_header.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\warn_on.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\qt.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\resources.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\moc.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\win32\opengl.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\uic.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\qmake_use.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\file_copies.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\win32\windows.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\testcase_targets.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\exceptions.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\yacc.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\lex.prf ..\HaffmanTree\HaffmanTree.pro ..\HaffmanTree\icon.qrc ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\lib\qtmain.prl ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\lib\Qt5Widgets.prl ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\lib\Qt5Gui.prl ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\lib\Qt5Core.prl   ..\HaffmanTree\icon.qrc ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\data\dummy.cpp ..\HaffmanTree\mainwindow.h ..\HaffmanTree\savedialog.h ..\HaffmanTree\haffmantree.h ..\HaffmanTree\vector.h  ..\HaffmanTree\main.cpp ..\HaffmanTree\mainwindow.cpp ..\HaffmanTree\savedialog.cpp ..\HaffmanTree\haffmantree.cpp ..\HaffmanTree\mainwindow.ui ..\HaffmanTree\savedialog.ui    
+	$(ZIP) HaffmanTree.zip $(SOURCES) $(DIST) ..\HaffmanTree\HaffmanTree.pro ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\spec_pre.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\qdevice.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\device_config.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\common\sanitize.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\common\gcc-base.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\common\g++-base.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\common\angle.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\common\windows-vulkan.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\common\g++-win32.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\qconfig.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3danimation.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3drender.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axbase.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axserver.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_core.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_core_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_dbus.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_designer.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_edid_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gui.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_help.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_help_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_location.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_location_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_network.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_network_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_nfc.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_opengl.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioning.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioningquick.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioningquick_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qml.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quick.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_scxml.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sensors.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialport.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sql.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_svg.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_testlib.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_texttospeech.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_uitools.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_websockets.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_widgets.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_winextras.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xml.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\qt_functions.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\qt_config.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\win32-g++\qmake.conf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\exclusive_builds.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\toolchain.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\default_pre.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\win32\default_pre.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\resolve_config.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\exclusive_builds_post.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\default_post.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\build_pass.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\qml_debug.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\precompile_header.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\warn_on.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\qt.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\resources.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\moc.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\win32\opengl.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\uic.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\qmake_use.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\file_copies.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\win32\windows.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\testcase_targets.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\exceptions.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\yacc.prf ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\lex.prf ..\HaffmanTree\HaffmanTree.pro ..\HaffmanTree\icon.qrc ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\lib\qtmain.prl ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\lib\Qt5Widgets.prl ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\lib\Qt5Gui.prl ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\lib\Qt5Core.prl   ..\HaffmanTree\icon.qrc ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\data\dummy.cpp ..\HaffmanTree\mainwindow.h ..\HaffmanTree\haffmantree.h  ..\HaffmanTree\main.cpp ..\HaffmanTree\mainwindow.cpp ..\HaffmanTree\haffmantree.cpp ..\HaffmanTree\mainwindow.ui ..\HaffmanTree\savedialog.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\main.o release\mainwindow.o release\savedialog.o release\haffmantree.o release\qrc_icon.o release\moc_mainwindow.o release\moc_savedialog.o
+	-$(DEL_FILE) release\main.o release\mainwindow.o release\haffmantree.o release\qrc_icon.o release\moc_mainwindow.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -460,14 +453,13 @@ compiler_moc_predefs_clean:
 release/moc_predefs.h: ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/features/data/dummy.cpp
 	g++ -fno-keep-inline-dllexport -O2 -std=gnu++11 -Wall -W -Wextra -dM -E -o release\moc_predefs.h ..\..\..\..\anzhuang\QtCreator\5.11.1\mingw53_32\mkspecs\features\data\dummy.cpp
 
-compiler_moc_header_make_all: release/moc_mainwindow.cpp release/moc_savedialog.cpp
+compiler_moc_header_make_all: release/moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) release\moc_mainwindow.cpp release\moc_savedialog.cpp
-release/moc_mainwindow.cpp: ../HaffmanTree/savedialog.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QDialog \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qdialog.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtguiglobal.h \
+	-$(DEL_FILE) release\moc_mainwindow.cpp
+release/moc_mainwindow.cpp: ../HaffmanTree/haffmantree.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/QString \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstring.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qchar.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qglobal.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qconfig.h \
@@ -489,24 +481,26 @@ release/moc_mainwindow.cpp: ../HaffmanTree/savedialog.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qmutex.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnumeric.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qversiontagging.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtgui-config.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qwidget.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnamespace.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobject.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstring.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qchar.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qbytearray.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qrefcount.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnamespace.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qarraydata.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringliteral.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringalgorithms.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringview.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringbuilder.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QMainWindow \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtguiglobal.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtgui-config.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgets-config.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qwidget.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobject.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qlist.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qalgorithms.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qiterator.h \
@@ -568,22 +562,17 @@ release/moc_mainwindow.cpp: ../HaffmanTree/savedialog.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qfiledevice.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qvector2d.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtouchdevice.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/QCloseEvent \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qframe.h \
-		../HaffmanTree/haffmantree.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QMainWindow \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QFileDialog \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qfiledialog.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qdir.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qfileinfo.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qdialog.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QTextEdit \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtextedit.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qframe.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtextdocument.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtextoption.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtextcursor.h \
@@ -592,124 +581,11 @@ release/moc_mainwindow.cpp: ../HaffmanTree/savedialog.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/QByteArray \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QMessageBox \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qmessagebox.h \
-		../HaffmanTree/vector.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QDialog \
 		../HaffmanTree/mainwindow.h \
 		release/moc_predefs.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/bin/moc.exe
 	D:\anzhuang\QtCreator\5.11.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -ID:/anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/win32-g++ -ID:/AndroidLabtest/SummerVacationProgram/HaffmanTree/HaffmanTree -ID:/anzhuang/QtCreator/5.11.1/mingw53_32/include -ID:/anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets -ID:/anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui -ID:/anzhuang/QtCreator/5.11.1/mingw53_32/include/QtANGLE -ID:/anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore -I. -ID:/anzhuang/QtCreator/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/anzhuang/QtCreator/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/anzhuang/QtCreator/Tools/mingw530_32/i686-w64-mingw32/include -ID:/anzhuang/QtCreator/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/anzhuang/QtCreator/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/anzhuang/QtCreator/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\HaffmanTree\mainwindow.h -o release\moc_mainwindow.cpp
-
-release/moc_savedialog.cpp: ../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QDialog \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qdialog.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtguiglobal.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qglobal.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qconfig.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qtcore-config.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qsystemdetection.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qprocessordetection.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qcompilerdetection.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qtypeinfo.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qsysinfo.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qlogging.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qflags.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qatomic.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qbasicatomic.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qatomic_bootstrap.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qgenericatomic.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qatomic_cxx11.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qatomic_msvc.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qglobalstatic.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qmutex.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnumeric.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qversiontagging.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtgui-config.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qwidget.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnamespace.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobject.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstring.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qchar.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qbytearray.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qrefcount.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qarraydata.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringliteral.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringalgorithms.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringview.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringbuilder.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qlist.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qalgorithms.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qiterator.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qhashfunctions.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qpair.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qbytearraylist.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringlist.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qregexp.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringmatcher.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qcoreevent.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qscopedpointer.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qmetatype.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qvarlengtharray.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qcontainerfwd.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobject_impl.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qmargins.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qpaintdevice.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qrect.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qsize.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qpoint.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qpalette.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qcolor.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qrgb.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qrgba64.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qbrush.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qvector.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qmatrix.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qpolygon.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qregion.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qdatastream.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qiodevice.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qline.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtransform.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qpainterpath.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qimage.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qpixelformat.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qpixmap.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qsharedpointer.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qshareddata.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qhash.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qsharedpointer_impl.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qfont.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qfontmetrics.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qfontinfo.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qsizepolicy.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qcursor.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qkeysequence.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qevent.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qvariant.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qmap.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qdebug.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qtextstream.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qlocale.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qset.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qcontiguouscache.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qurl.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qurlquery.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qfile.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qfiledevice.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qvector2d.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtouchdevice.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/QCloseEvent \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qframe.h \
-		../HaffmanTree/savedialog.h \
-		release/moc_predefs.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/bin/moc.exe
-	D:\anzhuang\QtCreator\5.11.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -ID:/anzhuang/QtCreator/5.11.1/mingw53_32/mkspecs/win32-g++ -ID:/AndroidLabtest/SummerVacationProgram/HaffmanTree/HaffmanTree -ID:/anzhuang/QtCreator/5.11.1/mingw53_32/include -ID:/anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets -ID:/anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui -ID:/anzhuang/QtCreator/5.11.1/mingw53_32/include/QtANGLE -ID:/anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore -I. -ID:/anzhuang/QtCreator/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -ID:/anzhuang/QtCreator/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -ID:/anzhuang/QtCreator/Tools/mingw530_32/i686-w64-mingw32/include -ID:/anzhuang/QtCreator/Tools/mingw530_32/i686-w64-mingw32/include/c++ -ID:/anzhuang/QtCreator/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -ID:/anzhuang/QtCreator/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\HaffmanTree\savedialog.h -o release\moc_savedialog.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -739,11 +615,10 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 ####### Compile
 
 release/main.o: ../HaffmanTree/main.cpp ../HaffmanTree/mainwindow.h \
-		../HaffmanTree/savedialog.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QDialog \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qdialog.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtguiglobal.h \
+		../HaffmanTree/haffmantree.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/QString \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstring.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qchar.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qglobal.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qconfig.h \
@@ -765,24 +640,26 @@ release/main.o: ../HaffmanTree/main.cpp ../HaffmanTree/mainwindow.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qmutex.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnumeric.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qversiontagging.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtgui-config.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qwidget.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnamespace.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobject.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstring.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qchar.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qbytearray.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qrefcount.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnamespace.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qarraydata.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringliteral.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringalgorithms.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringview.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringbuilder.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QMainWindow \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtguiglobal.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtgui-config.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgets-config.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qwidget.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobject.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qlist.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qalgorithms.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qiterator.h \
@@ -844,22 +721,17 @@ release/main.o: ../HaffmanTree/main.cpp ../HaffmanTree/mainwindow.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qfiledevice.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qvector2d.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtouchdevice.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/QCloseEvent \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qframe.h \
-		../HaffmanTree/haffmantree.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QMainWindow \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QFileDialog \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qfiledialog.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qdir.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qfileinfo.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qdialog.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QTextEdit \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtextedit.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qframe.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtextdocument.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtextoption.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtextcursor.h \
@@ -868,7 +740,7 @@ release/main.o: ../HaffmanTree/main.cpp ../HaffmanTree/mainwindow.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/QByteArray \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QMessageBox \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qmessagebox.h \
-		../HaffmanTree/vector.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QDialog \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QApplication \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
@@ -879,11 +751,10 @@ release/main.o: ../HaffmanTree/main.cpp ../HaffmanTree/mainwindow.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\HaffmanTree\main.cpp
 
 release/mainwindow.o: ../HaffmanTree/mainwindow.cpp ../HaffmanTree/mainwindow.h \
-		../HaffmanTree/savedialog.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QDialog \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qdialog.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtguiglobal.h \
+		../HaffmanTree/haffmantree.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/QString \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstring.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qchar.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qglobal.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qconfig.h \
@@ -905,24 +776,26 @@ release/mainwindow.o: ../HaffmanTree/mainwindow.cpp ../HaffmanTree/mainwindow.h 
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qmutex.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnumeric.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qversiontagging.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtgui-config.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qwidget.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnamespace.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobject.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstring.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qchar.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qbytearray.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qrefcount.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnamespace.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qarraydata.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringliteral.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringalgorithms.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringview.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringbuilder.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QMainWindow \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtguiglobal.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtgui-config.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgets-config.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qwidget.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobject.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qlist.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qalgorithms.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qiterator.h \
@@ -984,22 +857,17 @@ release/mainwindow.o: ../HaffmanTree/mainwindow.cpp ../HaffmanTree/mainwindow.h 
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qfiledevice.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qvector2d.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtouchdevice.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/QCloseEvent \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qframe.h \
-		../HaffmanTree/haffmantree.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QMainWindow \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QFileDialog \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qfiledialog.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qdir.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qfileinfo.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qdialog.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QTextEdit \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtextedit.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qframe.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtextdocument.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtextoption.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtextcursor.h \
@@ -1008,7 +876,7 @@ release/mainwindow.o: ../HaffmanTree/mainwindow.cpp ../HaffmanTree/mainwindow.h 
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/QByteArray \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QMessageBox \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qmessagebox.h \
-		../HaffmanTree/vector.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QDialog \
 		ui_mainwindow.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/QVariant \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/QIcon \
@@ -1032,14 +900,14 @@ release/mainwindow.o: ../HaffmanTree/mainwindow.cpp ../HaffmanTree/mainwindow.h 
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QToolBar \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtoolbar.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QWidget \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/QDebug
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/QDebug \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/QCloseEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\HaffmanTree\mainwindow.cpp
 
-release/savedialog.o: ../HaffmanTree/savedialog.cpp ../HaffmanTree/savedialog.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QDialog \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qdialog.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtguiglobal.h \
+release/haffmantree.o: ../HaffmanTree/haffmantree.cpp ../HaffmanTree/haffmantree.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/QString \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstring.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qchar.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qglobal.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qconfig.h \
@@ -1061,107 +929,14 @@ release/savedialog.o: ../HaffmanTree/savedialog.cpp ../HaffmanTree/savedialog.h 
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qmutex.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnumeric.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qversiontagging.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtgui-config.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qwidget.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnamespace.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobject.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstring.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qchar.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qbytearray.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qrefcount.h \
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qnamespace.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qarraydata.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringliteral.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringalgorithms.h \
 		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringview.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringbuilder.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qlist.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qalgorithms.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qiterator.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qhashfunctions.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qpair.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qbytearraylist.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringlist.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qregexp.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringmatcher.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qcoreevent.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qscopedpointer.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qmetatype.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qvarlengtharray.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qcontainerfwd.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qobject_impl.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qmargins.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qpaintdevice.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qrect.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qsize.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qpoint.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qpalette.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qcolor.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qrgb.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qrgba64.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qbrush.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qvector.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qmatrix.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qpolygon.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qregion.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qdatastream.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qiodevice.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qline.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtransform.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qpainterpath.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qimage.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qpixelformat.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qpixmap.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qsharedpointer.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qshareddata.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qhash.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qsharedpointer_impl.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qfont.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qfontmetrics.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qfontinfo.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qsizepolicy.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qcursor.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qkeysequence.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qevent.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qvariant.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qmap.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qdebug.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qtextstream.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qlocale.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qset.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qcontiguouscache.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qurl.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qurlquery.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qfile.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qfiledevice.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qvector2d.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qtouchdevice.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/QCloseEvent \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qframe.h \
-		ui_savedialog.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/QVariant \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QApplication \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QHBoxLayout \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qboxlayout.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qlayout.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtWidgets/QSpacerItem
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\savedialog.o ..\HaffmanTree\savedialog.cpp
-
-release/haffmantree.o: ../HaffmanTree/haffmantree.cpp ../HaffmanTree/haffmantree.h
+		../../../../anzhuang/QtCreator/5.11.1/mingw53_32/include/QtCore/qstringbuilder.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\haffmantree.o ..\HaffmanTree\haffmantree.cpp
 
 release/qrc_icon.o: release/qrc_icon.cpp 
@@ -1169,9 +944,6 @@ release/qrc_icon.o: release/qrc_icon.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_mainwindow.o release\moc_mainwindow.cpp
-
-release/moc_savedialog.o: release/moc_savedialog.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_savedialog.o release\moc_savedialog.cpp
 
 ####### Install
 

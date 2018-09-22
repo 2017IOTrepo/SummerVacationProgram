@@ -1,6 +1,8 @@
 #ifndef HAFFMANTREE_H
 #define HAFFMANTREE_H
 
+#include <QString>
+#include <iostream>
 
 class HaffmanTree
 {
@@ -14,7 +16,7 @@ public:
 
     char fileChar;
     int weight;
-
+    QString charWeight;
 };
 
 #endif // HAFFMANTREE_H
