@@ -35,7 +35,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    if(!isOpenOk){
+    file.setFileName(dataPath);
+    if(isOpenOk){
         //记录上一次打开的文件
         file.open(QIODevice::WriteOnly);
         file.write(filePath.toUtf8());
@@ -50,13 +51,21 @@ MainWindow::~MainWindow()
 //覆写关闭事件 实现关闭前保存
 void MainWindow::closeEvent(QCloseEvent *event){
     if(infodialog.ifChanged){
-        int ok = QMessageBox::warning(this,tr("确认保存!"),tr("您还有尚未保存的条目，请问是否保存！"),
-            QMessageBox::Yes,QMessageBox::No);
-        if(ok == QMessageBox::Yes){
+        int res = QMessageBox::question(this, "保存", "你有未保存内容, 请问是否保存!",
+                                        QMessageBox::Yes, QMessageBox::No, QMessageBox::Cancel);
+        switch (res) {
+        case QMessageBox::Yes:
             model->submitAll();//是则保存
             event->accept();
-        }else{
+            break;
+        case QMessageBox::No:
+            event->accept();
+            break;
+        case QMessageBox::Cancel:
             event->ignore();
+            break;
+        default:
+            break;
         }
     }
 }
@@ -66,13 +75,11 @@ void MainWindow::firstOpen(){
     dataBase = QSqlDatabase::addDatabase("QSQLITE");
     file.setFileName(dataPath);
     if(!dataPath.isEmpty()){
-
         file.open(QIODevice::ReadOnly);
         QByteArray array = file.readAll();
         filePath = QString(array);
-        QFile dataFile(filePath);
 
-        if(dataFile.open(QIODevice::ReadOnly)){
+        if(!filePath.isEmpty()){
             isOpenOk = true;
             initDataBase();
         }else{
@@ -152,6 +159,7 @@ void MainWindow::addModel(){
 
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);//设置手动提交
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
 
 //设置标题
@@ -178,10 +186,20 @@ void MainWindow::on_pAdd_triggered()
     infodialog.exec();
 }
 
-void MainWindow::receiveMessages(int docNum, int docClass, int docPeo,
+void MainWindow:: receiveMessages(int docNum, int docClass, int docPeo,
                                  QString stuName, int stuNumber, QString stuSex, QString stuMajor){
     qDebug() << docNum << docClass << docPeo << stuName << stuNumber << stuSex << stuMajor << editRow;
-    if((editRow == -1) && !isEdit){
+    if(isEdit){
+        record.setValue(0 , docNum);
+        record.setValue(1 , docClass);
+        record.setValue(2 , docPeo);
+        record.setValue(3 , stuName);
+        record.setValue(4 , stuNumber);
+        record.setValue(5 , stuSex);
+        record.setValue(6 , stuMajor);
+        model->setRecord(editRow, record);
+        isEdit = false;
+    }else{
         record = model->record();//获取空记录
         record.setValue(0 , docNum);
         record.setValue(1 , docClass);
@@ -193,16 +211,6 @@ void MainWindow::receiveMessages(int docNum, int docClass, int docPeo,
         //获取行号
         int row = model->rowCount();
         model->insertRecord(row, record);
-    }else{
-        record.setValue(0 , docNum);
-        record.setValue(1 , docClass);
-        record.setValue(2 , docPeo);
-        record.setValue(3 , stuName);
-        record.setValue(4 , stuNumber);
-        record.setValue(5 , stuSex);
-        record.setValue(6 , stuMajor);
-        model->setRecord(editRow, record);
-        isEdit = false;
     }
 
 }
@@ -341,6 +349,7 @@ void MainWindow::on_pDelete_triggered()
     }else{
         model->submitAll(); //否则提交，在数据库中删除该行
     }
+    model->select();
 }
 
 void MainWindow::on_downSort_clicked(bool checked)

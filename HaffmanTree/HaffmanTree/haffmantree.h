@@ -14,9 +14,9 @@ public:
     HaffmanTree *left;//左节点
     HaffmanTree *right;//右节点
 
-    char fileChar;
-    int weight;
-    QString charWeight;
+    char fileChar;//字符
+    int weight;//权重
+    QString charWeight;//哈夫曼编码
 };
 
 #endif // HAFFMANTREE_H

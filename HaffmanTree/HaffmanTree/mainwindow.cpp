@@ -1,7 +1,7 @@
 /*
  * 四种情况
  * 1.普通打开(完成)
- * 2.哈夫曼打开()(待改进
+ * 2.哈夫曼打开(完成)(待改进
  * 3.普通保存(完成)
  * 4.哈夫曼保存(完成)(待改进
  * 但4^4 = 16方法，操作不当有很大可能失误
@@ -112,6 +112,7 @@ void MainWindow::on_pNew_triggered()
     //namedialog.show();
     QString newFilePath = fileDialog.getSaveFileName(this, "新建", "../", "txt(*.txt)");
     qDebug() << newFilePath << "地址";
+
     if(!newFilePath.isEmpty()){
         QFile newFile;
         newFile.setFileName(newFilePath);
@@ -119,6 +120,7 @@ void MainWindow::on_pNew_triggered()
         filePath = newFilePath;
         readFile();
     }
+
 }
 
 void MainWindow::readFile(){
@@ -189,7 +191,7 @@ void MainWindow::sortByWeight(int lo, int hi){
     while (lo < (hi = sortCore(lo, hi))) ;
 }
 
-//快排实现迅速移动节点
+//实现迅速移动节点
 int MainWindow::sortCore(int lo, int hi) {
     int last = lo;//最右侧逆序对初始化为[lo - 1, lo]
 
