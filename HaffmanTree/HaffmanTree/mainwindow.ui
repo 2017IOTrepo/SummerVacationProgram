@@ -42,7 +42,6 @@ p, li { white-space: pre-wrap; }
    <addaction name="pNew"/>
    <addaction name="pOpen"/>
    <addaction name="pCompressSave"/>
-   <addaction name="pUnzip"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="pOpen">
@@ -61,15 +60,6 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="text">
     <string>压缩保存</string>
-   </property>
-  </action>
-  <action name="pUnzip">
-   <property name="icon">
-    <iconset resource="icon.qrc">
-     <normaloff>:/actions/go-up.png</normaloff>:/actions/go-up.png</iconset>
-   </property>
-   <property name="text">
-    <string>解码保存</string>
    </property>
   </action>
   <action name="pNew">

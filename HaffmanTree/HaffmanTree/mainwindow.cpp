@@ -14,6 +14,7 @@
 #include <QCloseEvent>
 #include <iostream>
 #include <QString>
+#include <cmath>
 //#define ENGBET 512
 
 using namespace std;
@@ -86,11 +87,6 @@ void MainWindow::firstOpen(){
     dataFile.close();
 }
 
-void MainWindow::on_pUnzip_triggered()
-{
-    saveByNormal();
-}
-
 void MainWindow::on_pCompressSave_triggered()
 {
     this->setEnabled(false);
@@ -124,60 +120,13 @@ void MainWindow::on_pNew_triggered()
 }
 
 void MainWindow::readFile(){
-    turnUI(true);
-
-    int res = QMessageBox::question(this, "询问", "请问此文件是否为哈夫曼编码格式?");
-    switch (res) {
-    case QMessageBox::Yes:
-        isHaffman = true;
-        readByNormal();
-        readByHaffman();
-        break;
-
-    case QMessageBox::No:
-        isHaffman = false;
-        readByNormal();
-        mainText->setText(array);
-        break;
-    }
 }
 
 void MainWindow::readByHaffman(){
-    HaffmanTree *tesNode = node + charCount - 1;
-    QString text = "";
-    for(int i=0; i<array.length(); i++){
-        if(array[i] == '1'){
-            tesNode = tesNode->right;
-        }else if (array[i] == '0') {
-            tesNode = tesNode->left;
-        }
-        if(tesNode->left == NULL && tesNode->right == NULL){
-            text.append(tesNode->fileChar);
-            tesNode = node + charCount - 1;
-        }
-    }
-    mainText->setText(text);
 }
 
 //每个node设置字符串仅是为了debug
 void MainWindow::setNum(HaffmanTree *node, QString numSet, bool left){
-    if(!isroot){
-        if(left){
-            numSet.append('0');
-            node->charWeight = '0';
-        }else {
-            numSet.append('1');
-            node->charWeight = '1';
-        }
-    }
-    if((node->left != NULL) && (node->right != NULL)){
-        isroot = false;
-        setNum(node->left, numSet, true);
-        setNum(node->right, numSet, false);
-    }else {
-        charSet[(int)(node->fileChar)] = numSet;
-        node->charWeight = numSet;
-    }
 }
 
 void MainWindow::insert(int lo, HaffmanTree father){
@@ -187,6 +136,9 @@ void MainWindow::insert(int lo, HaffmanTree father){
     node[lo] = father;
 }
 
+/**
+  冒泡排序
+*/
 void MainWindow::sortByWeight(int lo, int hi){
     while (lo < (hi = sortCore(lo, hi))) ;
 }
@@ -233,46 +185,10 @@ void MainWindow::readByNormal(){
 void MainWindow::saveByHaffman(){
     QString text = "";
     array = mainText->toPlainText().toUtf8();
-    for(int i = 0; i<array.length(); i++){
-        fileChar[array[i]]++;
-    }
-
-    //没有用vector类
-    //因为对象问题
-    for(int i = 0; i<ENGBET; i++){
-        //qDebug() << fileChar[i];
-        if(fileChar[i]){
-            node[charCount++] = HaffmanTree((char)i, fileChar[i]);
-        }
-    }
-
-    sortByWeight(0, charCount - 1);
-    charSet = new QString[ENGBET];
-
-    for(int i = 0; i < charCount;){
-        HaffmanTree father((node + i), (node + i + 1),
-                           'r', node[i].weight + node[i+1].weight);
-        i += 2;
-        insert(i, father);
-        sortByWeight(i, charCount);
-        charCount++;
-    }
-    charCount--;
-
-    setNum((node + charCount - 1), "", true);
-
-    for(int i=0; i<charCount; i++)
-        qDebug() << node[i].fileChar << node[i].weight << node[i].left << node[i].right << node[i].charWeight;
-
-    for(int i=0; i<array.length(); i++){
-        text.append(charSet[(int)array[i]]);
-    }
-
-//    text.append(" ");
-//    for
-
     if(file.open(QIODevice::WriteOnly)){
-        file.write(text.toUtf8());
+        QTextStream stream(&file);
+        stream.setCodec("UTF-8"); // 设置编码
+        stream << text;
         isSave = true;
         file.close();
     }else {

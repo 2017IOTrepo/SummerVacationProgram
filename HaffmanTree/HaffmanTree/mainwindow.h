@@ -28,8 +28,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pUnzip_triggered();
-
     void on_pCompressSave_triggered();
 
     void on_pOpen_triggered();
