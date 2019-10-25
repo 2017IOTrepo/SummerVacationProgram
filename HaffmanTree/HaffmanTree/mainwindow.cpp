@@ -15,7 +15,7 @@
 #include <iostream>
 #include <QString>
 #include <cmath>
-//#define ENGBET 512
+#include <QtAlgorithms>
 
 using namespace std;
 
@@ -25,7 +25,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    node = new HaffmanTree[ENGBET];
     firstOpen();
     mainText = ui->mainTextView;
     turnUI(false);
@@ -116,57 +115,22 @@ void MainWindow::on_pNew_triggered()
         filePath = newFilePath;
         readFile();
     }
-
 }
 
 void MainWindow::readFile(){
+    if (isHaffman) {
+        readByHaffman();
+    }else {
+        readByNormal();
+    }
 }
 
 void MainWindow::readByHaffman(){
 }
 
-//每个node设置字符串仅是为了debug
-void MainWindow::setNum(HaffmanTree *node, QString numSet, bool left){
-}
-
-void MainWindow::insert(int lo, HaffmanTree father){
-    for(int i = charCount; i > lo; i--){
-        node[i] = node[i - 1];
-    }
-    node[lo] = father;
-}
-
 /**
-  冒泡排序
+  普通文件读取
 */
-void MainWindow::sortByWeight(int lo, int hi){
-    while (lo < (hi = sortCore(lo, hi))) ;
-}
-
-//实现迅速移动节点
-int MainWindow::sortCore(int lo, int hi) {
-    int last = lo;//最右侧逆序对初始化为[lo - 1, lo]
-
-    while(++lo <= hi)
-    {
-        if(node[lo - 1].weight > node[lo].weight)
-        {
-            last = lo;
-            swap(lo - 1, lo);
-        }
-    }
-
-    return last;//返回最右侧逆序对位置
-}
-
-void MainWindow::swap(int a, int b){
-    HaffmanTree temp;
-
-    temp = node[a];
-    node[a] = node[b];
-    node[b] = temp;
-}
-
 void MainWindow::readByNormal(){
     if(file.size() < 10000000){
         //默认只识别utf-8
@@ -198,6 +162,9 @@ void MainWindow::saveByHaffman(){
     this->setEnabled(true);
 }
 
+/**
+  普通写入
+*/
 void MainWindow::saveByNormal(){
     this->setEnabled(false);
     QString text = mainText->toPlainText();
@@ -215,11 +182,9 @@ void MainWindow::saveByNormal(){
 void MainWindow::turnUI(bool ifTurn){
     if(ifTurn){
         ui->pCompressSave->setEnabled(true);
-        ui->pUnzip->setEnabled(true);
         mainText->setEnabled(true);
     }else{
         ui->pCompressSave->setEnabled(false);
-        ui->pUnzip->setEnabled(false);
         mainText->setEnabled(false);
     }
 }

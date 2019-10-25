@@ -10,8 +10,8 @@
 #include <QByteArray>
 #include <QMessageBox>
 #include <QDialog>
-#include <vector>
-#include <QString>
+#include <QVector>
+#include <qmap.h>
 
 using namespace std;
 
@@ -46,18 +46,12 @@ private:
     void saveByHaffman();//哈夫曼编码保存
     void saveByNormal();//普通格式保存
     void closeEvent(QCloseEvent *);
-    void sortByWeight(int, int);
-    void swap(int, int);
-    int sortCore(int, int);
-    void insert(int, HaffmanTree);
-    void setNum(HaffmanTree *, QString, bool);
 
     bool isOpenOk = false;//是否成功打开
     bool isHaffman = false;//是否为哈夫曼编码文件
     bool isSave = true;//是否需要保存
     bool isroot = true; //是否是头结点
     int count = 0;
-    int fileChar[ENGBET] = {0};
     int charCount = 0;
     HaffmanTree *node;
     QString *charSet;
