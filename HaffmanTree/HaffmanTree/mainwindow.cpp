@@ -9,8 +9,7 @@
 */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
-#include <QDebug>
+#include "logger.h"
 #include <QCloseEvent>
 #include <iostream>
 #include <QString>
@@ -68,7 +67,7 @@ void MainWindow::closeEvent(QCloseEvent *event){
 }
 
 void MainWindow::firstOpen(){
-    dataFile.setFileName(dataPath);
+    dataFile.setFileName("./data.txt");
     if(!dataFile.open(QIODevice::ReadOnly)){
 
         QByteArray array = file.readAll();
@@ -146,9 +145,26 @@ void MainWindow::readByNormal(){
     file.close();
 }
 
+
+
 void MainWindow::saveByHaffman(){
     QString text = "";
+
+
+
     array = mainText->toPlainText().toUtf8();
+    for (auto &byte : array) {
+        if (charMap.contains(byte)) {
+            charMap[byte]++;
+            debug_inline(charMap[byte]);
+        }
+    }
+
+
+
+
+
+
     if(file.open(QIODevice::WriteOnly)){
         QTextStream stream(&file);
         stream.setCodec("UTF-8"); // 设置编码

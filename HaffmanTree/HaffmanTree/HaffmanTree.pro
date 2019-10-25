@@ -29,6 +29,7 @@ SOURCES += \
     haffmantree.cpp
 
 HEADERS += \
+	logger.h \
         mainwindow.h \
     haffmantree.h
 
